@@ -47,10 +47,9 @@ return [
             'table' => 'cache',
             'connection' => null,
         ],
-        'none' => ['driver' => 'null',],
 
         'file' => [
-            'driver' => 'none',
+            'driver' => 'file',
             'path' => storage_path('framework/cache/data'),
         ],
 
