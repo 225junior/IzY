@@ -11,4 +11,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class User extends Authenticatable
 {
     use Notifiable,SoftDeletes;
+
+    public $fillable =['name','email','password'];
 }
