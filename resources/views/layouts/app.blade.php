@@ -9,26 +9,26 @@
 
     <title>{{ config('app.name') }}</title>
 
-        <!-- apell des elements du template -->
-            <!-- Bootstrap -->
-            <link href="{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-            <!-- Font Awesome -->
-            <link href="{{ asset('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-            <!-- NProgress -->
-            <link href="{{ asset('vendors/nprogress/nprogress.css')}}" rel="stylesheet">
-            <!-- iCheck -->
-            <link href="{{ asset('vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
+	<!-- apell des elements du template -->
+		<!-- Bootstrap -->
+		<link href="{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+		<!-- Font Awesome -->
+		<link href="{{ asset('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+		<!-- NProgress -->
+		<link href="{{ asset('vendors/nprogress/nprogress.css')}}" rel="stylesheet">
+		<!-- iCheck -->
+		<link href="{{ asset('vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
 
-            <!-- bootstrap-progressbar -->
-            <link href="{{ asset('vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
-            <!-- JQVMap -->
-            <link href="{{ asset('vendors/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
-            <!-- bootstrap-daterangepicker -->
-            <link href="{{ asset('vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+		<!-- bootstrap-progressbar -->
+		<link href="{{ asset('vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
+		<!-- JQVMap -->
+		<link href="{{ asset('vendors/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
+		<!-- bootstrap-daterangepicker -->
+		<link href="{{ asset('vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
 
-            <!-- Custom Theme Style -->
-            <link href="{{ asset('../build/css/custom.min.css')}}" rel="stylesheet">
-        <!-- fin appel -->
+		<!-- Custom Theme Style -->
+		<link href="{{ asset('../build/css/custom.min.css')}}" rel="stylesheet">
+	<!-- fin appel -->
 
 
 
@@ -45,6 +45,7 @@
 <body class="nav-md">
     <div id="app" class="container body">
         <div class="main_container">
+
 
             @Auth()
                 <!-- side bar -->
@@ -63,15 +64,39 @@
             @endauth()
 
 
+			<div class="right_col" role="main" style="min-height: 5183px;">
+				<div class="">
+
+					<!-- Titre de page -->
+					<div class="page-title">
+						<div class="title_left">
+							<h3>Tableau de Bord</h3>
+						</div>
+
+						<div class="title_right">
+							<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Rechercher...">
+									<span class="input-group-btn">
+										<button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+									</span>
+								</div>
+							</div>
+						</div><!-- fin title_right -->
+					</div><!-- fin page-title -->
 
 
-            <main class="py-4">
-                @yield('content')
-            </main>
 
-			@include('layouts.footer')
-        </div>
-    </div>
+					<div class="clearfix"></div>
+
+
+						@yield('content')
+
+				</div>
+			</div><!-- righr_col -->
+        </div><!-- main_container -->
+    </div><!-- #app -->
+
     <!-- jQuery -->
     <script src="{{ asset('vendors/jquery/dist/jquery.min.js')}}" async></script>
     <!-- Bootstrap -->
