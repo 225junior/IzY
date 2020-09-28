@@ -30,9 +30,9 @@
                                             <a><i class="fa fa-edit"></i> Ressources <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li><a href="{{ Route('regions.index') }}">Regions</a></li>
-                                                <li><a href="#">Viles</a></li>
-                                                <li><a href="#">Communes</a></li>
-                                                <li><a href="#">Quartiers</a></li>
+                                                <li><a href="{{ Route('villes.index') }}">Viles</a></li>
+                                                <li><a href="{{ Route('communes.index') }}">Communes</a></li>
+                                                <li><a href="{{ Route('quartiers.index') }}">Quartiers</a></li>
                                             </ul>
                                         </li>
                                     </ul>
