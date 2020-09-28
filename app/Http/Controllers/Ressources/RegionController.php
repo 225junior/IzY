@@ -15,7 +15,7 @@ class RegionController extends Controller
      */
     public function index()
     {
-        //
+        return 'ok index de region';
     }
 
     /**
