@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Ressources\Ville;
-
-class VilleSeeder extends Seeder
+use App\Ressources\Quartier;
+class QuartierSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,12 +14,11 @@ class VilleSeeder extends Seeder
         $faker = Faker\Factory::create('fr_FR');
 
         for ($i = 0; $i < 10; $i++) {
-            Ville::create([
-                'libelle' => $faker->city,
+            Quartier::create([
+                'libelle' => $faker->streetName,
                 'active'=>1,
-                'region_id'=> $faker->numberBetween(1,10)
+                'commune_id'=> $faker->numberBetween(1,10)
             ]);
         }
-
     }
 }
