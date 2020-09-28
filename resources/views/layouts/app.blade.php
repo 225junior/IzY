@@ -63,44 +63,44 @@
         </div>
     </div>
     <!-- jQuery -->
-    <script src="{{ asset('vendors/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{ asset('vendors/jquery/dist/jquery.min.js')}}" async></script>
     <!-- Bootstrap -->
-    <script src="{{ asset('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}" async></script>
     <!-- FastClick -->
-    <script src="{{ asset('vendors/fastclick/lib/fastclick.js')}}"></script>
+    <script src="{{ asset('vendors/fastclick/lib/fastclick.js')}}" async></script>
     <!-- NProgress -->
-    <script src="{{ asset('vendors/nprogress/nprogress.js')}}"></script>
+    <script src="{{ asset('vendors/nprogress/nprogress.js')}}" async></script>
     <!-- Chart.js -->
-    <script src="{{ asset('vendors/Chart.js/dist/Chart.min.js')}}"></script>
+    <script src="{{ asset('vendors/Chart.js/dist/Chart.min.js')}}" async></script>
     <!-- gauge.js -->
-    <script src="{{ asset('vendors/gauge.js/dist/gauge.min.js')}}"></script>
+    <script src="{{ asset('vendors/gauge.js/dist/gauge.min.js')}}" async></script>
     <!-- bootstrap-progressbar -->
-    <script src="{{ asset('vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+    <script src="{{ asset('vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}" async></script>
     <!-- iCheck -->
-    <script src="{{ asset('vendors/iCheck/icheck.min.js')}}"></script>
+    <script src="{{ asset('vendors/iCheck/icheck.min.js')}}" async></script>
     <!-- Skycons -->
-    <script src="{{ asset('vendors/skycons/skycons.js')}}"></script>
+    <script src="{{ asset('vendors/skycons/skycons.js')}}" async></script>
     <!-- Flot -->
-    <script src="{{ asset('vendors/Flot/jquery.flot.js')}}"></script>
-    <script src="{{ asset('vendors/Flot/jquery.flot.pie.js')}}"></script>
-    <script src="{{ asset('vendors/Flot/jquery.flot.time.js')}}"></script>
-    <script src="{{ asset('vendors/Flot/jquery.flot.stack.js')}}"></script>
-    <script src="{{ asset('vendors/Flot/jquery.flot.resize.js')}}"></script>
+    <script src="{{ asset('vendors/Flot/jquery.flot.js')}}" async></script>
+    <script src="{{ asset('vendors/Flot/jquery.flot.pie.js')}}" async></script>
+    <script src="{{ asset('vendors/Flot/jquery.flot.time.js')}}" async></script>
+    <script src="{{ asset('vendors/Flot/jquery.flot.stack.js')}}" async></script>
+    <script src="{{ asset('vendors/Flot/jquery.flot.resize.js')}}" async></script>
     <!-- Flot plugins -->
-    <script src="{{ asset('vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
-    <script src="{{ asset('vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
-    <script src="{{ asset('vendors/flot.curvedlines/curvedLines.js')}}"></script>
+    <script src="{{ asset('vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}" async></script>
+    <script src="{{ asset('vendors/flot-spline/js/jquery.flot.spline.min.js')}}" async></script>
+    <script src="{{ asset('vendors/flot.curvedlines/curvedLines.js')}}" async></script>
     <!-- DateJS -->
-    <script src="{{ asset('vendors/DateJS/build/date.js')}}"></script>
+    <script src="{{ asset('vendors/DateJS/build/date.js')}}" async></script>
     <!-- JQVMap -->
-    <script src="{{ asset('vendors/jqvmap/dist/jquery.vmap.js')}}"></script>
-    <script src="{{ asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-    <script src="{{ asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
+    <script src="{{ asset('vendors/jqvmap/dist/jquery.vmap.js')}}" async></script>
+    <script src="{{ asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}" async></script>
+    <script src="{{ asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}" async></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="{{ asset('vendors/moment/min/moment.min.js')}}"></script>
-    <script src="{{ asset('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+    <script src="{{ asset('vendors/moment/min/moment.min.js')}}" async></script>
+    <script src="{{ asset('vendors/bootstrap-daterangepicker/daterangepicker.js')}}" async></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="{{ asset('build/js/custom.min.js')}}"></script>
+    <script src="{{ asset('build/js/custom.min.js')}}" async></script>
 </body>
 </html>
