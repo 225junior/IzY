@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Ressources;
 
 use App\Http\Controllers\Controller;
-use App\Ressources\Ville;
+use App\Ressources\Commune;
 use Illuminate\Http\Request;
 
-class VilleContoller extends Controller
+class CommuneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class VilleContoller extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Ressources\Ville  $ville
+     * @param  \App\Ressources\Commune  $commune
      * @return \Illuminate\Http\Response
      */
-    public function show(Ville $ville)
+    public function show(Commune $commune)
     {
         //
     }
@@ -53,10 +53,10 @@ class VilleContoller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Ressources\Ville  $ville
+     * @param  \App\Ressources\Commune  $commune
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ville $ville)
+    public function edit(Commune $commune)
     {
         //
     }
@@ -65,10 +65,10 @@ class VilleContoller extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Ressources\Ville  $ville
+     * @param  \App\Ressources\Commune  $commune
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ville $ville)
+    public function update(Request $request, Commune $commune)
     {
         //
     }
@@ -76,10 +76,10 @@ class VilleContoller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Ressources\Ville  $ville
+     * @param  \App\Ressources\Commune  $commune
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ville $ville)
+    public function destroy(Commune $commune)
     {
         //
     }

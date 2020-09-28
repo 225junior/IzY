@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Ressources\Quartier;
 use Illuminate\Http\Request;
 
-class QuartierContoller extends Controller
+class QuartierController extends Controller
 {
     /**
      * Display a listing of the resource.
