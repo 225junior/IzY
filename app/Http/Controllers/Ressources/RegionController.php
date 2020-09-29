@@ -11,7 +11,7 @@ class RegionController extends Controller
     /*Display a listing of the resource.*/
     public function index()
     {
-		$regions = Region::paginate(5);
+		$regions = Region::paginate(50);
         return view('ressources.regions.index',compact('regions'));
     }
 
@@ -29,7 +29,10 @@ class RegionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		request()->validate(['libelle'=> 'required','unique:regions']);
+		Region::create(['libelle'=>request()->libelle]);
+
+		return redirect()->route('regions.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
     }
 
     /**
