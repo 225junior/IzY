@@ -25,6 +25,7 @@
                         <tr>
                           <th width="10%">#</th>
                           <th width="40%">Nom de Région</th>
+                          <th width="10%">État</th>
                           <th width="25%"></th>
                         </tr>
                       </thead>
@@ -33,6 +34,7 @@
 							<tr>
 								<th scope="row">{{ $region->id }}</th>
 								<td><a href="{{ route('regions.show',$region->id )}}"> {{ $region->libelle }} </a></td>
+								<th scope="row"> <i class="fa fa-toggle-{{ $region->active ==1 ?  'on' : 'off'}}"></i> </th>
 								<td>
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $region->id }}">Supprimer</button>
 
