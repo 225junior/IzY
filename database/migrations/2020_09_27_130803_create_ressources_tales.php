@@ -21,7 +21,7 @@ class CreateRessourcesTales extends Migration
             $table->increments('id');
             $table->string('libelle');
             $table->unsignedInteger('region_id');
-            $table->foreign('region_id')->references('id')->on('regions');
+            $table->foreign('region_id')->references('id')->on('regions')->onDelete('cascade')->onUpdate('cascade');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
@@ -31,7 +31,7 @@ class CreateRessourcesTales extends Migration
             $table->increments('id');
             $table->string('libelle');
             $table->unsignedInteger('ville_id');
-            $table->foreign('ville_id')->references('id')->on('villes');
+            $table->foreign('ville_id')->references('id')->on('villes')->onDelete('cascade')->onUpdate('cascade');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
@@ -41,7 +41,7 @@ class CreateRessourcesTales extends Migration
             $table->increments('id');
             $table->string('libelle');
             $table->unsignedInteger('commune_id');
-            $table->foreign('commune_id')->references('id')->on('communes');
+            $table->foreign('commune_id')->references('id')->on('communes')->onDelete('cascade')->onUpdate('cascade');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
