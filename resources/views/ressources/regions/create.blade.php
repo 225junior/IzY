@@ -23,10 +23,19 @@
 							@endif
 						</div>
 					</div>
+
+					<div class="item form-group">
+						<label class="col-form-label offset-md-3 col-md-2 col-sm-3 label-align" for="check">Active On/Off</label>
+						<div class="col-md-1 col-sm-2 ">
+							<input type="checkbox" id="check" name="active" class="form-control">
+						</div>
+					</div>
+
+
 					<div class="ln_solid"></div>
 					<div class="item form-group">
 						<div class="col-md-6 col-sm-6 offset-md-4">
-							<button class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i></button>
+							<a href="{{ route('regions.index')}}" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i></a>
 							<button class="btn btn-primary" type="reset">Effacer</button>
 							<input type="submit" class="btn btn-success">
 						</div>

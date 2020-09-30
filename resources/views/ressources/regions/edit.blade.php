@@ -16,13 +16,21 @@
 					@csrf
 					@method('PUT')
 					<div class="item form-group">
-						<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom de la région <span class="required">*</span>
+						<label class="col-form-label col-md-3 col-sm-3 label-align" for="libelle">Nom de la région <span class="required">*</span>
 						</label>
 						<div class="col-md-6 col-sm-6 ">
-							<input type="text" id="first-name" min="2" required name="libelle" class="form-control" value="{{ $region->libelle }}">
+							<input type="text" id="libelle" min="2" required name="libelle" class="form-control" value="{{ $region->libelle }}">
 							@if ($errors->has('libelle'))
 								<p class="text-danger">{{ $errors->first('libelle') }}</p>
 							@endif
+						</div>
+					</div>
+
+
+					<div class="item form-group">
+						<label class="col-form-label offset-md-3 col-md-2 col-sm-3 label-align" for="check">Active On/Off</label>
+						<div class="col-md-1 col-sm-2 ">
+							<input type="checkbox" id="check" name="active" class="form-control" {{ $region->active ==1 ?  'checked' : ''}}>
 						</div>
 					</div>
 

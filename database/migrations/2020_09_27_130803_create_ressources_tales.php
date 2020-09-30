@@ -12,7 +12,7 @@ class CreateRessourcesTales extends Migration
         Schema::create('regions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('libelle');
-            $table->boolean('active')->default(true);
+            $table->boolean('active')->default(false);
             $table->timestamps();
         });
 

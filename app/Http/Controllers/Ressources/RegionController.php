@@ -21,7 +21,7 @@ class RegionController extends Controller
 
 
 
-	
+
 
     /* Show the form for creating a new resource.*/
     public function create()
@@ -40,7 +40,14 @@ class RegionController extends Controller
     public function store(Request $request)
     {
 		request()->validate(['libelle'=> 'required','unique:regions']);
-		Region::create(['libelle'=>request()->libelle]);
+
+		if ($request->active) {
+			Region::create(['libelle'=>request()->libelle,
+							'active'=>true
+			]);
+		}else{
+			Region::create(['libelle'=>request()->libelle]);
+		}
 
 		return redirect()->route('regions.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
     }
