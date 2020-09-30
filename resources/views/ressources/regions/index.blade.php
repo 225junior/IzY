@@ -13,13 +13,6 @@
 						<a href=" {{ Route('regions.create') }}" class="btn btn-success">Creer</a>
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Settings 1</a>
-                            <a class="dropdown-item" href="#">Settings 2</a>
-                          </div>
-                      </li>
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
                     </ul>
@@ -39,7 +32,7 @@
 					  	@foreach ($regions as $region)
 							<tr>
 								<th scope="row">{{ $region->id }}</th>
-								<td>{{ $region->libelle }}</td>
+								<td><a href="{{ route('regions.show',$region->id )}}"> {{ $region->libelle }} </a></td>
 								<td>
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $region->id }}">Supprimer</button>
 
@@ -70,10 +63,6 @@
                       </div>
                     </div>
                   </div>
-
-
-
-
 
 								    <a class="btn btn-xs btn-info col-md-3" href="{{ route('regions.edit',$region->id) }}">🖊️</a>
 								</td>
