@@ -4,7 +4,7 @@
 
             <div class="row">
 
-			<div class="col-md-12 col-sm-12  ">
+			<div class="col-md-8 offset-md-2 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Liste des Regions</h2>
@@ -30,10 +30,9 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
+                          <th width="10%">#</th>
+                          <th width="40%">Nom de Région</th>
+                          <th width="25%"></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -41,13 +40,53 @@
 							<tr>
 								<th scope="row">{{ $region->id }}</th>
 								<td>{{ $region->libelle }}</td>
-								<td>the Bird</td>
-								<td>@twitter</td>
+								<td>
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $region->id }}">Supprimer</button>
+
+
+                  <div class="modal fade modal-{{ $region->id }}" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel2">Supprimer  {{ $region->libelle }}</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <h4>Attention !</h4>
+                          <p>Voulez vou vraiment supprimer {{ $region->libelle }} ?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                          <form method="POST" action="{{ route('regions.destroy',$region->id) }}" class="col-md-5">
+                            @csrf
+                            @method('DELETE')
+                            <input class="btn btn-xs btn-danger" type="submit" value="🗑️">
+                          </form>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+								    <a class="btn btn-xs btn-info col-md-3" href="{{ route('regions.edit',$region->id) }}">🖊️</a>
+								</td>
 							</tr>
 						@endforeach
 
                       </tbody>
                     </table>
+
+
+
+
+
 
                   </div>
                 </div>

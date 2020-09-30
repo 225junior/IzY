@@ -77,6 +77,7 @@ class RegionController extends Controller
      */
     public function destroy(Region $region)
     {
-        //
+		Region::destroy($region->id);
+		return redirect()->route('regions.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
     }
 }
