@@ -46,7 +46,7 @@ class VilleController extends Controller
 	 public function store(Request $request)
 	 {
 		request()->validate([
-			'libelle'=> 'required','unique:villes',
+			'libelle'=> 'required|unique:villes',
 			'region_id'=>'required',
 		]);
 
