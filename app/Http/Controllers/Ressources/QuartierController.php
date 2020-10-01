@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Ressources;
 
 use App\Http\Controllers\Controller;
 use App\Ressources\Quartier;
+use App\Ressources\Commune;
 use Illuminate\Http\Request;
 
 class QuartierController extends Controller
@@ -24,11 +25,12 @@ class QuartierController extends Controller
 
 
 
-	
+
     /* Show the form for creating a new resource.*/
     public function create()
     {
-        return view('ressources.quartiers.create');
+		$communes = Commune::all();
+        return view('ressources.quartiers.create',compact('communes'));
     }
 
 
@@ -45,29 +47,23 @@ class QuartierController extends Controller
     {
 		request()->validate([
 			'libelle'=> 'required','unique:quartiers',
-			'commune_id'=>10,
+			'commune_id'=>'required',
 		]);
 
 		if ($request->active) {
 			Quartier::create(['libelle'=>request()->libelle,
-							'commune_id'=>10,
+							'commune_id'=>request()->commune_id,
 							'active'=>true
 			]);
 		}else{
 			Quartier::create([
 				'libelle'=>request()->libelle,
-				'commune_id'=>10
+				'commune_id'=>request()->commune_id,
 			]);
 		}
 
 		return redirect()->route('quartiers.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
     }
-
-
-
-
-
-
 
 
 
