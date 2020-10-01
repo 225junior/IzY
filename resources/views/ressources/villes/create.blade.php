@@ -14,7 +14,7 @@
 				<form data-parsley-validate="" action="{{route('villes.store')}}" method="POST" class="form-horizontal form-label-left" novalidate="">
 					@csrf
 					<div class="item form-group">
-						<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom de la région <span class="required">*</span>
+						<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom de la ville <span class="required">*</span>
 						</label>
 						<div class="col-md-6 col-sm-9 ">
 							<input type="text" id="first-name" min="2" required name="libelle" class="form-control" value="{{ old('libelle') }}">
