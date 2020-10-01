@@ -39,7 +39,7 @@ class RegionController extends Controller
     /*Store a newly created resource in storage.*/
     public function store(Request $request)
     {
-		request()->validate(['libelle'=> 'required','unique:regions']);
+		request()->validate(['libelle'=> 'required | unique:regions']);
 
 		if ($request->active) {
 			Region::create(['libelle'=>request()->libelle,
@@ -95,7 +95,7 @@ class RegionController extends Controller
     public function update(Request $request, Region $region)
     {
 		request()->validate([
-            'libelle' => ['required'],
+            'libelle' => 'required',
         ]);
 
         Region::find($region->id)->update([
