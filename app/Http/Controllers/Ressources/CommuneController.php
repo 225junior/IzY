@@ -8,79 +8,125 @@ use Illuminate\Http\Request;
 
 class CommuneController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /*Display a listing of the resource.*/
     public function index()
     {
-        //
+		$communes = Commune::orderBy('id','desc')->paginate(50);
+        return view('ressources.communes.index',compact('communes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
+
+
+
+
+
+
+
+
+    /* Show the form for creating a new resource.*/
     public function create()
     {
-        //
+        return view('ressources.communes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
+
+
+
+
+
+
+
+	/*Store a newly created resource in storage.*/
     public function store(Request $request)
     {
-        //
+		request()->validate([
+			'libelle'=> 'required','unique:communes',
+			'ville_id'=>10,
+		]);
+
+		if ($request->active) {
+			Commune::create(['libelle'=>request()->libelle,
+							'ville_id'=>10,
+							'active'=>true
+			]);
+		}else{
+			Commune::create([
+				'libelle'=>request()->libelle,
+				'ville_id'=>10
+			]);
+		}
+
+		return redirect()->route('communes.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Ressources\Commune  $commune
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Commune $commune)
+
+
+
+
+
+
+
+
+
+
+
+    /* Display the specified resource.*/
+    public function show(Commune $quartier)
     {
-        //
+		return 'specifique ressource';
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Ressources\Commune  $commune
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Commune $commune)
+
+
+
+
+
+
+
+
+
+    /*Show the form for editing the specified resource.*/
+    public function edit(Commune $quartier)
     {
-        //
+        return view('ressources.communes.edit',compact('quartier'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Ressources\Commune  $commune
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Commune $commune)
+
+
+
+
+
+
+    /*Update the specified resource in storage.*/
+    public function update(Request $request, Commune $quartier)
     {
-        //
+        request()->validate([
+            'libelle' => ['required'],
+            'ville_id' => ['required'],
+        ]);
+
+        Commune::find($quartier->id)->update([
+            'libelle' => $request->libelle,
+            'ville_id' => $request->ville_id,
+        ]);
+        return redirect()->route('communes.index')->withErrors(['msg' => 'Modiffication éffectuée !']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Ressources\Commune  $commune
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Commune $commune)
+
+
+
+
+
+
+
+    /*Remove the specified resource from storage.*/
+    public function destroy(Commune $quartier)
     {
-        //
+		Commune::destroy($quartier->id);
+		return redirect()->route('communes.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
     }
 }
