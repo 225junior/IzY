@@ -4,16 +4,17 @@ namespace App\Http\Controllers\Ressources;
 
 use App\Http\Controllers\Controller;
 use App\Ressources\Ville;
+use App\Ressources\Region;
 use Illuminate\Http\Request;
 
 class VilleController extends Controller
 {
-     /*Display a listing of the resource.*/
-	 public function index()
-	 {
-		 $villes = Ville::orderBy('id','desc')->paginate(50);
-		 return view('ressources.villes.index',compact('villes'));
-	 }
+	/*Display a listing of the resource.*/
+	public function index()
+	{
+		$villes = Ville::orderBy('id','desc')->paginate(50);
+		return view('ressources.villes.index',compact('villes'));
+	}
 
 
 
@@ -28,7 +29,8 @@ class VilleController extends Controller
 	 /* Show the form for creating a new resource.*/
 	 public function create()
 	 {
-		 return view('ressources.villes.create');
+		$regions = Region::all();
+		return view('ressources.villes.create',compact('regions'));
 	 }
 
 
@@ -43,24 +45,24 @@ class VilleController extends Controller
 	 /*Store a newly created resource in storage.*/
 	 public function store(Request $request)
 	 {
-		 request()->validate([
-			 'libelle'=> 'required','unique:villes',
-			 'region_id'=>10,
-		 ]);
+		request()->validate([
+			'libelle'=> 'required','unique:villes',
+			'region_id'=>'required',
+		]);
 
-		 if ($request->active) {
-			 Ville::create(['libelle'=>request()->libelle,
-							 'region_id'=>10,
-							 'active'=>true
-			 ]);
-		 }else{
-			 Ville::create([
-				 'libelle'=>request()->libelle,
-				 'region_id'=>10
-			 ]);
-		 }
+		if ($request->active) {
+			Ville::create(['libelle'=>request()->libelle,
+							'region_id'=>request()->region_id,
+							'active'=>true
+			]);
+		}else{
+			Ville::create([
+				'libelle'=>request()->libelle,
+				'region_id'=>request()->region_id
+			]);
+		}
 
-		 return redirect()->route('villes.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
+		return redirect()->route('villes.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
 	 }
 
 
