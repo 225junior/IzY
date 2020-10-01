@@ -25,8 +25,9 @@
                         <tr>
                           <th width="10%">#</th>
                           <th width="40%">Nom de Quartier</th>
+                          <th width="10%">Commune</th>
                           <th width="10%">État</th>
-                          <th width="25%"></th>
+                          <th width="30%"></th>
                         </tr>
                       </thead>
                       <tbody>
@@ -34,6 +35,7 @@
 							<tr>
 								<th scope="row">{{ $quartier->id }}</th>
 								<td><a href="{{ route('quartiers.show',$quartier->id )}}"> {{ $quartier->libelle }} </a></td>
+								<td> {{ $quartier->commune->libelle }} </td>
 								<th scope="row"> <i class="fa fa-toggle-{{ $quartier->active ==1 ?  'on' : 'off'}}"></i> </th>
 								<td>
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $quartier->id }}">Supprimer</button>

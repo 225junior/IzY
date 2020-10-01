@@ -27,7 +27,7 @@
                           <th width="40%">Nom de Villes</th>
                           <th width="10%">Rgions</th>
                           <th width="10%">État</th>
-                          <th width="25%"></th>
+                          <th width="30%"></th>
                         </tr>
                       </thead>
                       <tbody>
