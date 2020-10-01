@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Ressources;
 
 use App\Http\Controllers\Controller;
 use App\Ressources\Commune;
+use App\Ressources\Ville;
 use Illuminate\Http\Request;
 
 class CommuneController extends Controller
@@ -28,7 +29,8 @@ class CommuneController extends Controller
     /* Show the form for creating a new resource.*/
     public function create()
     {
-        return view('ressources.communes.create');
+		$villes = Ville::all();
+        return view('ressources.communes.create',compact('villes'));
     }
 
 
@@ -44,25 +46,24 @@ class CommuneController extends Controller
     public function store(Request $request)
     {
 		request()->validate([
-			'libelle'=> 'required','unique:communes',
-			'ville_id'=>10,
+			'libelle'=> 'required|unique:communes',
+			'ville_id'=>'required',
 		]);
 
 		if ($request->active) {
 			Commune::create(['libelle'=>request()->libelle,
-							'ville_id'=>10,
+							'ville_id'=>request()->ville_id,
 							'active'=>true
 			]);
 		}else{
 			Commune::create([
 				'libelle'=>request()->libelle,
-				'ville_id'=>10
+				'region_id'=>request()->ville_id
 			]);
 		}
 
 		return redirect()->route('communes.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
     }
-
 
 
 
