@@ -25,6 +25,7 @@
                         <tr>
                           <th width="10%">#</th>
                           <th width="40%">Nom de Villes</th>
+                          <th width="10%">Rgions</th>
                           <th width="10%">État</th>
                           <th width="25%"></th>
                         </tr>
@@ -34,6 +35,7 @@
 							<tr>
 								<th scope="row">{{ $ville->id }}</th>
 								<td><a href="{{ route('villes.show',$ville->id )}}"> {{ $ville->libelle }} </a></td>
+								<td> {{ $ville->region->libelle }} </td>
 								<th scope="row"> <i class="fa fa-toggle-{{ $ville->active ==1 ?  'on' : 'off'}}"></i> </th>
 								<td>
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $ville->id }}">Supprimer</button>
