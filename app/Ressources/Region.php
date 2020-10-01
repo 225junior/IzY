@@ -8,4 +8,9 @@ class Region extends Model
 {
     protected $fillable=['libelle','active'];
 
+	// possede plusieurs villes
+	public function villes()
+    {
+        return $this->hasMany('App\Ville');
+    }
 }
