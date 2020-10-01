@@ -75,7 +75,7 @@ class CommuneController extends Controller
 
 
     /* Display the specified resource.*/
-    public function show(Commune $quartier)
+    public function show(Commune $commune)
     {
 		return 'specifique ressource';
     }
@@ -90,9 +90,9 @@ class CommuneController extends Controller
 
 
     /*Show the form for editing the specified resource.*/
-    public function edit(Commune $quartier)
+    public function edit(Commune $commune)
     {
-        return view('ressources.communes.edit',compact('quartier'));
+        return view('ressources.communes.edit',compact('commune'));
     }
 
 
@@ -102,14 +102,14 @@ class CommuneController extends Controller
 
 
     /*Update the specified resource in storage.*/
-    public function update(Request $request, Commune $quartier)
+    public function update(Request $request, Commune $commune)
     {
         request()->validate([
             'libelle' => ['required'],
             'ville_id' => ['required'],
         ]);
 
-        Commune::find($quartier->id)->update([
+        Commune::find($commune->id)->update([
             'libelle' => $request->libelle,
             'ville_id' => $request->ville_id,
         ]);
@@ -124,9 +124,9 @@ class CommuneController extends Controller
 
 
     /*Remove the specified resource from storage.*/
-    public function destroy(Commune $quartier)
+    public function destroy(Commune $commune)
     {
-		Commune::destroy($quartier->id);
+		Commune::destroy($commune->id);
 		return redirect()->route('communes.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
     }
 }

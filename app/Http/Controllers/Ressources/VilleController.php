@@ -11,8 +11,8 @@ class VilleController extends Controller
      /*Display a listing of the resource.*/
 	 public function index()
 	 {
-		 $viles = Ville::orderBy('id','desc')->paginate(50);
-		 return view('ressources.viles.index',compact('viles'));
+		 $villes = Ville::orderBy('id','desc')->paginate(50);
+		 return view('ressources.villes.index',compact('villes'));
 	 }
 
 
@@ -28,7 +28,7 @@ class VilleController extends Controller
 	 /* Show the form for creating a new resource.*/
 	 public function create()
 	 {
-		 return view('ressources.viles.create');
+		 return view('ressources.villes.create');
 	 }
 
 
@@ -44,7 +44,7 @@ class VilleController extends Controller
 	 public function store(Request $request)
 	 {
 		 request()->validate([
-			 'libelle'=> 'required','unique:viles',
+			 'libelle'=> 'required','unique:villes',
 			 'region_id'=>10,
 		 ]);
 
@@ -60,7 +60,7 @@ class VilleController extends Controller
 			 ]);
 		 }
 
-		 return redirect()->route('viles.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
+		 return redirect()->route('villes.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
 	 }
 
 
@@ -92,7 +92,7 @@ class VilleController extends Controller
 	 /*Show the form for editing the specified resource.*/
 	 public function edit(Ville $ville)
 	 {
-		 return view('ressources.viles.edit',compact('ville'));
+		 return view('ressources.villes.edit',compact('ville'));
 	 }
 
 
@@ -113,7 +113,7 @@ class VilleController extends Controller
 			 'libelle' => $request->libelle,
 			 'region_id' => $request->region_id,
 		 ]);
-		 return redirect()->route('viles.index')->withErrors(['msg' => 'Modiffication éffectuée !']);
+		 return redirect()->route('villes.index')->withErrors(['msg' => 'Modiffication éffectuée !']);
 	 }
 
 
@@ -127,6 +127,6 @@ class VilleController extends Controller
 	 public function destroy(Ville $ville)
 	 {
 		 Ville::destroy($ville->id);
-		 return redirect()->route('viles.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
+		 return redirect()->route('villes.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
 	 }
 }
