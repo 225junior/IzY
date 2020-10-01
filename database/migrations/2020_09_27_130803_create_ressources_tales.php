@@ -22,7 +22,7 @@ class CreateRessourcesTales extends Migration
             $table->string('libelle');
             $table->unsignedInteger('region_id');
             $table->foreign('region_id')->references('id')->on('regions')->onDelete('cascade')->onUpdate('cascade');
-            $table->boolean('active')->default(true);
+            $table->boolean('active')->default(false);
             $table->timestamps();
         });
 
@@ -32,7 +32,7 @@ class CreateRessourcesTales extends Migration
             $table->string('libelle');
             $table->unsignedInteger('ville_id');
             $table->foreign('ville_id')->references('id')->on('villes')->onDelete('cascade')->onUpdate('cascade');
-            $table->boolean('active')->default(true);
+            $table->boolean('active')->default(false);
             $table->timestamps();
         });
 
@@ -42,7 +42,7 @@ class CreateRessourcesTales extends Migration
             $table->string('libelle');
             $table->unsignedInteger('commune_id');
             $table->foreign('commune_id')->references('id')->on('communes')->onDelete('cascade')->onUpdate('cascade');
-            $table->boolean('active')->default(true);
+            $table->boolean('active')->default(false);
             $table->timestamps();
         });
     }
