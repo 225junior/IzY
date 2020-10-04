@@ -94,7 +94,8 @@ class VilleController extends Controller
 	 /*Show the form for editing the specified resource.*/
 	 public function edit(Ville $ville)
 	 {
-		 return view('ressources.villes.edit',compact('ville'));
+		$regions = Region::where('id','<>',$ville->region->id)->get();
+        return view('ressources.villes.edit',compact('ville','regions'));
 	 }
 
 
@@ -103,20 +104,37 @@ class VilleController extends Controller
 
 
 
-	 /*Update the specified resource in storage.*/
-	 public function update(Request $request, Ville $ville)
-	 {
+	/*Update the specified resource in storage.*/
+	public function update(Request $request, Ville $ville)
+	{
 		 request()->validate([
 			 'libelle' => ['required'],
 			 'region_id' => ['required'],
 		 ]);
 
-		 Ville::find($ville->id)->update([
+		Ville::find($ville->id)->update([
 			 'libelle' => $request->libelle,
 			 'region_id' => $request->region_id,
-		 ]);
-		 return redirect()->route('villes.index')->withErrors(['msg' => 'Modiffication éffectuée !']);
-	 }
+		]);
+
+
+		if (request()->active) {
+			Ville::find($ville->id)->update([
+				'libelle' => $request->libelle,
+				'region_id' => $request->region_id,
+				'active'=>true
+			]);
+		}else {
+			Ville::find($ville->id)->update([
+				'libelle' => $request->libelle,
+				'region_id' => $request->region_id,
+				'active'=>false
+			]);
+		}
+
+		return redirect()->route('villes.index')->withErrors(['msg' => 'Modiffication éffectuée !']);
+
+	}
 
 
 
