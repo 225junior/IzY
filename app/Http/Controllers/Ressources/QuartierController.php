@@ -12,7 +12,7 @@ class QuartierController extends Controller
     /*Display a listing of the resource.*/
     public function index()
     {
-		$quartiers = Quartier::orderBy('id','desc')->paginate(50);
+		$quartiers = Quartier::orderBy('id','desc')->paginate(5);
         return view('ressources.quartiers.index',compact('quartiers'));
     }
 

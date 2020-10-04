@@ -12,7 +12,7 @@ class CommuneController extends Controller
     /*Display a listing of the resource.*/
     public function index()
     {
-		$communes = Commune::orderBy('id','desc')->paginate(50);
+		$communes = Commune::orderBy('id','desc')->paginate(5);
         return view('ressources.communes.index',compact('communes'));
     }
 

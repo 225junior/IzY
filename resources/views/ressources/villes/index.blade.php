@@ -33,11 +33,11 @@
                       <tbody>
 					  	@foreach ($villes as $ville)
 							<tr>
-								<th scope="row">{{ $ville->id }}</th>
-								<td><a href="{{ route('villes.show',$ville->id )}}"> {{ $ville->libelle }} </a></td>
-								<td> {{ $ville->region->libelle }} </td>
-								<th scope="row"> <i class="fa fa-toggle-{{ $ville->active ==1 ?  'on' : 'off'}}"></i> </th>
-								<td>
+								<th  style="padding:1px;"  scope="row">{{ $ville->id }}</th>
+								<td style="padding:1px;" ><a href="{{ route('villes.show',$ville->id )}}"> {{ $ville->libelle }} </a></td>
+								<td style="padding:1px;" > {{ $ville->region->libelle }} </td>
+								<th style="padding:1px;"  scope="row"> <i class="fa fa-toggle-{{ $ville->active ==1 ?  'on' : 'off'}}"></i> </th>
+								<td style="padding:1px;" >
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $ville->id }}">Supprimer</button>
 
 
@@ -75,7 +75,7 @@
 
                       </tbody>
                     </table>
-
+					{{ $villes->links() }}
 
 
 

@@ -17,7 +17,7 @@
 						<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom de la commune <span class="required">*</span>
 						</label>
 						<div class="col-md-6 col-sm-9 ">
-							<input type="text" id="first-name" min="2" required name="libelle" class="form-control" value="{{ old('libelle') }}">
+							<input type="text" id="first-name" min="2" autofocus tabindex="1" required name="libelle" class="form-control" value="{{ old('libelle') }}">
 							@if ($errors->has('libelle'))
 								<p class="text-danger">{{ $errors->first('libelle') }}</p>
 							@endif
@@ -29,7 +29,7 @@
 					<div class="item form-group">
 						<label class="col-form-label col-md-3 col-sm-3 label-align">Ville</label>
 						<div class="col-md-6 col-sm-9 ">
-							<select class="select2_single form-control" tabindex="-1" name="ville_id">
+							<select class="select2_single form-control" tabindex="2" name="ville_id">
 								@foreach ($villes as $ville)
 									<option value="{{ $ville->id }}">{{ $ville->libelle }}</option>
 								@endforeach

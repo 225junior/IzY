@@ -11,7 +11,7 @@ class RegionController extends Controller
     /*Display a listing of the resource.*/
     public function index()
     {
-		$regions = Region::orderBy('id','desc')->paginate(50);
+		$regions = Region::orderBy('id','desc')->paginate(5);
         return view('ressources.regions.index',compact('regions'));
     }
 

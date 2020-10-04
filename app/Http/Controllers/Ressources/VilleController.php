@@ -12,7 +12,7 @@ class VilleController extends Controller
 	/*Display a listing of the resource.*/
 	public function index()
 	{
-		$villes = Ville::orderBy('id','desc')->paginate(50);
+		$villes = Ville::orderBy('id','desc')->paginate(5);
 		return view('ressources.villes.index',compact('villes'));
 	}
 
