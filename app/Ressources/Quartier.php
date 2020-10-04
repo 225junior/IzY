@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quartier extends Model
 {
-	protected $fillable=['libelle','active','region_id'];
+	protected $fillable=['libelle','active','commune_id'];
 
 	// quartier appartient à commue
 	public function commune()
