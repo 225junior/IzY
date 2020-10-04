@@ -45,10 +45,11 @@ class QuartierController extends Controller
 	/*Store a newly created resource in storage.*/
     public function store(Request $request)
     {
-		request()->validate([
-			'libelle'=> 'required','unique:quartiers',
-			'commune_id'=>'required',
-		]);
+		// dd($request);
+		// request()->validate([
+		// 	'libelle'=> 'required | unique:quartiers',
+		// 	'commune_id'=>'required',
+		// 	]);
 
 		if ($request->active) {
 			Quartier::create(['libelle'=>request()->libelle,
