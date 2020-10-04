@@ -11,10 +11,10 @@
 			</div>
 			<div class="x_content">
 				<br>
-				<form data-parsley-validate="" action="{{route('villes.store')}}" method="POST" class="form-horizontal form-label-left" novalidate="">
+				<form data-parsley-validate="" action="{{route('communes.store')}}" method="POST" class="form-horizontal form-label-left" novalidate="">
 					@csrf
 					<div class="item form-group">
-						<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom de la ville <span class="required">*</span>
+						<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom de la commune <span class="required">*</span>
 						</label>
 						<div class="col-md-6 col-sm-9 ">
 							<input type="text" id="first-name" min="2" required name="libelle" class="form-control" value="{{ old('libelle') }}">
@@ -27,9 +27,9 @@
 
 
 					<div class="item form-group">
-						<label class="col-form-label col-md-3 col-sm-3 label-align">Région</label>
+						<label class="col-form-label col-md-3 col-sm-3 label-align">Ville</label>
 						<div class="col-md-6 col-sm-9 ">
-							<select class="select2_single form-control" tabindex="-1" name="region_id">
+							<select class="select2_single form-control" tabindex="-1" name="ville_id">
 								@foreach ($villes as $ville)
 									<option value="{{ $ville->id }}">{{ $ville->libelle }}</option>
 								@endforeach
@@ -53,7 +53,7 @@
 					<div class="ln_solid"></div>
 					<div class="item form-group">
 						<div class="col-md-6 col-sm-6 offset-md-4">
-							<a href="{{ route('villes.index')}}" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i></a>
+							<a href="{{ route('communes.index')}}" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i></a>
 							<button class="btn btn-primary" type="reset">Effacer</button>
 							<input type="submit" class="btn btn-success">
 						</div>

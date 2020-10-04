@@ -49,7 +49,6 @@ class CommuneController extends Controller
 			'libelle'=> 'required|unique:communes',
 			'ville_id'=>'required',
 		]);
-
 		if ($request->active) {
 			Commune::create(['libelle'=>request()->libelle,
 							'ville_id'=>request()->ville_id,
@@ -58,7 +57,7 @@ class CommuneController extends Controller
 		}else{
 			Commune::create([
 				'libelle'=>request()->libelle,
-				'region_id'=>request()->ville_id
+				'ville_id'=>request()->ville_id
 			]);
 		}
 
