@@ -88,7 +88,9 @@ class QuartierController extends Controller
     /*Show the form for editing the specified resource.*/
     public function edit(Quartier $quartier)
     {
-        return view('ressources.quartiers.edit',compact('quartier'));
+		// dd('');
+		$communes = Commune::where('id','<>',$quartier->commune->id)->get();
+        return view('ressources.quartiers.edit',compact('quartier','communes'));
     }
 
 
