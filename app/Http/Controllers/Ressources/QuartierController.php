@@ -88,7 +88,6 @@ class QuartierController extends Controller
     /*Show the form for editing the specified resource.*/
     public function edit(Quartier $quartier)
     {
-		// dd('');
 		$communes = Commune::where('id','<>',$quartier->commune->id)->get();
         return view('ressources.quartiers.edit',compact('quartier','communes'));
     }
@@ -107,10 +106,22 @@ class QuartierController extends Controller
             'commune_id' => ['required'],
         ]);
 
-        Quartier::find($quartier->id)->update([
-            'libelle' => $request->libelle,
-            'commune_id' => $request->commune_id,
-        ]);
+
+		if (request()->active) {
+			Quartier::find($quartier->id)->update([
+            	'libelle' => $request->libelle,
+            	'commune_id' => $request->commune_id,
+				'active'=>true
+			]);
+		}else {
+			Quartier::find($quartier->id)->update([
+            	'libelle' => $request->libelle,
+            	'commune_id' => $request->commune_id,
+				'active'=>false
+
+			]);
+		}
+
         return redirect()->route('quartiers.index')->withErrors(['msg' => 'Modiffication éffectuée !']);
     }
 

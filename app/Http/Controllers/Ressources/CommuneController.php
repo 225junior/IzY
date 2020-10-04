@@ -92,7 +92,8 @@ class CommuneController extends Controller
     /*Show the form for editing the specified resource.*/
     public function edit(Commune $commune)
     {
-        return view('ressources.communes.edit',compact('commune'));
+		$villes = Ville::where('id','<>',$commune->ville->id)->get();
+        return view('ressources.communes.edit',compact('commune','villes'));
     }
 
 
@@ -108,11 +109,20 @@ class CommuneController extends Controller
             'libelle' => ['required'],
             'ville_id' => ['required'],
         ]);
+		if (request()->active) {
+			Commune::find($commune->id)->update([
+				'libelle' => $request->libelle,
+				'ville_id' => $request->ville_id,
+				'active'=>true
+			]);
+		}else {
+			Commune::find($commune->id)->update([
+				'libelle' => $request->libelle,
+				'ville_id' => $request->ville_id,
+				'active'=>false
 
-        Commune::find($commune->id)->update([
-            'libelle' => $request->libelle,
-            'ville_id' => $request->ville_id,
-        ]);
+			]);
+		}
         return redirect()->route('communes.index')->withErrors(['msg' => 'Modiffication éffectuée !']);
     }
 
