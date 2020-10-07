@@ -75,7 +75,7 @@
 
                       </tbody>
                     </table>
-
+					{{ $quartiers->links() }}
 
 
 
