@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Prestations;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Ressources\Service;
+use App\Prestations\Service;
 
 class ServiceController extends Controller
 {
@@ -15,7 +15,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

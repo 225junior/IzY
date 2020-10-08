@@ -16,7 +16,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 route::middleware('auth')->group(function(){
 
-	Route::resource('prestataires', 'PrestataireController');
+	Route::namespace('Prestations')->group(function(){
+		Route::resource('prestataires', 'PrestataireController');
+	});
 
 	Route::namespace('Ressources')->group(function(){
 

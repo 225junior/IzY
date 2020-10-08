@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Prestations;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Ressources\Domaine;
+use App\Prestations\Domaine;
 
 class DomaineController extends Controller
 {

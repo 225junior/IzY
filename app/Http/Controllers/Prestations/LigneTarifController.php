@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Prestations;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Ressources\LigneTarif;
+use App\Prestations\LigneTarif;
 
 
 class LigneTarifController extends Controller

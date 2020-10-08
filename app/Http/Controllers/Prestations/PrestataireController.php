@@ -4,37 +4,32 @@ namespace App\Http\Controllers\Prestations;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Ressources\Prestataire;
+use App\Prestations\Prestataire;
 
 
 class PrestataireController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /*Display a listing of the resource.*/
     public function index()
     {
-        //
+		$prestataires = Prestataire::paginate(15);
+        return view('prestations.prestataires.index',compact('prestataires'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
+
+
+    /*Show the form for creating a new resource.*/
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
+
+    /*Store a newly created resource in storage.*/
     public function store(Request $request)
     {
         //
