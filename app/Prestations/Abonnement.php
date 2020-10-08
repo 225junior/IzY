@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Prestations;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tarification extends Model
+class Abonnement extends Model
 {
     //
 }

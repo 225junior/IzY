@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Prestations;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Domaine extends Model
+class Prestataire extends Model
 {
     //
 }
