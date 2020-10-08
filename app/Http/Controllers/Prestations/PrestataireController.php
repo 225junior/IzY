@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Prestations;
 
-use App\Domaine;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Ressources\Prestataire;
 
-class DomaineController extends Controller
+
+class PrestataireController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +43,10 @@ class DomaineController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Domaine  $domaine
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Domaine $domaine)
+    public function show($id)
     {
         //
     }
@@ -52,10 +54,10 @@ class DomaineController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Domaine  $domaine
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Domaine $domaine)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +66,10 @@ class DomaineController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Domaine  $domaine
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Domaine $domaine)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +77,10 @@ class DomaineController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Domaine  $domaine
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Domaine $domaine)
+    public function destroy($id)
     {
         //
     }

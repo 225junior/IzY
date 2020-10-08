@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Prestations;
 
-use App\LigneTarif;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Ressources\Abonnement;
 
-class LigneTarifController extends Controller
+class AbonnementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class LigneTarifController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\LigneTarif  $ligneTarif
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(LigneTarif $ligneTarif)
+    public function show($id)
     {
         //
     }
@@ -52,10 +53,10 @@ class LigneTarifController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\LigneTarif  $ligneTarif
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(LigneTarif $ligneTarif)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +65,10 @@ class LigneTarifController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\LigneTarif  $ligneTarif
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LigneTarif $ligneTarif)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +76,10 @@ class LigneTarifController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\LigneTarif  $ligneTarif
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LigneTarif $ligneTarif)
+    public function destroy($id)
     {
         //
     }

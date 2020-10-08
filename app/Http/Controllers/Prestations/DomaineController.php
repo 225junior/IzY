@@ -1,30 +1,39 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Prestations;
 
-use App\Prestataire;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Ressources\Domaine;
 
-class PrestataireController extends Controller
+class DomaineController extends Controller
 {
-    /*Display a listing of the resource.*/
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return('ok');
+        //
     }
 
-
-
-    /*Show the form for creating a new resource.*/
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         //
-	}
+    }
 
-
-	
-
-    /* Store a newly created resource in storage.*/
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         //
@@ -33,10 +42,10 @@ class PrestataireController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Prestataire  $prestataire
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Prestataire $prestataire)
+    public function show($id)
     {
         //
     }
@@ -44,10 +53,10 @@ class PrestataireController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Prestataire  $prestataire
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Prestataire $prestataire)
+    public function edit($id)
     {
         //
     }
@@ -56,10 +65,10 @@ class PrestataireController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Prestataire  $prestataire
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Prestataire $prestataire)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -67,10 +76,10 @@ class PrestataireController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Prestataire  $prestataire
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Prestataire $prestataire)
+    public function destroy($id)
     {
         //
     }
