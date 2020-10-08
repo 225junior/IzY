@@ -8,18 +8,14 @@ use App\Prestations\Service;
 
 class ServiceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /*Display a listing of the resource.*/
     public function index()
     {
-
+		$services = Service::paginate(15);
+        return view('prestations.services.index',compact('services'));
     }
 
-    /**
-     * Show the form for creating a new resource.
+    /*Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
