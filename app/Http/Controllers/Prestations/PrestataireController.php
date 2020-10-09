@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Prestations;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Prestations\Prestataire;
+use App\Ressources\Quartier;
 
 
 class PrestataireController extends Controller
@@ -23,7 +24,8 @@ class PrestataireController extends Controller
     /*Show the form for creating a new resource.*/
     public function create()
     {
-        //
+        $quartiers = Quartier::all();
+        return view('prestations.prestataires.create',compact('quartiers'));
     }
 
 
@@ -32,7 +34,13 @@ class PrestataireController extends Controller
     /*Store a newly created resource in storage.*/
     public function store(Request $request)
     {
-        //
+        request()->validate([
+			'nom'=>'required',
+			'prenoms'=>'required',
+			'nom'=>'required',
+			'nom'=>'required',
+		]);
+
     }
 
     /**
@@ -75,8 +83,9 @@ class PrestataireController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Prestataire $prestataire)
     {
-        //
+        Prestataire::destroy($prestataire->id);
+		return redirect()->route('prestataires.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
     }
 }

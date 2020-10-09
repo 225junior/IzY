@@ -5,33 +5,67 @@
 	<div class="col-md-12 col-sm-12 ">
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>Creation de VILLE</h2>
+				<h2>Creation de Prestataire</h2>
 
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
 				<br>
-				<form data-parsley-validate="" action="{{route('communes.store')}}" method="POST" class="form-horizontal form-label-left" novalidate="">
+				<form data-parsley-validate="" action="{{route('prestataires.store')}}" method="POST" class="form-horizontal form-label-left" novalidate="">
 					@csrf
+
+					<!-- name= nom -->
 					<div class="item form-group">
-						<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom de la commune <span class="required">*</span>
-						</label>
+						<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nom <span class="required">*</span></label>
 						<div class="col-md-6 col-sm-9 ">
-							<input type="text" id="first-name" min="2" autofocus tabindex="1" required name="libelle" class="form-control" value="{{ old('libelle') }}">
-							@if ($errors->has('libelle'))
-								<p class="text-danger">{{ $errors->first('libelle') }}</p>
+							<input type="text" id="first-name" min="2" autofocus tabindex="1" required name="nom" class="form-control" value="{{ old('nom') }}">
+							@if ($errors->has('nom'))
+								<p class="text-danger">{{ $errors->first('nom') }}</p>
 							@endif
 						</div>
 					</div>
 
 
-
+					<!-- name= prenoms -->
 					<div class="item form-group">
-						<label class="col-form-label col-md-3 col-sm-3 label-align">Ville</label>
+						<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Prénoms <span class="required">*</span></label>
 						<div class="col-md-6 col-sm-9 ">
-							<select class="select2_single form-control" tabindex="2" name="ville_id">
-								@foreach ($villes as $ville)
-									<option value="{{ $ville->id }}">{{ $ville->libelle }}</option>
+							<input type="text" id="last-name" min="2" tabindex="1" required name="prenoms" class="form-control" value="{{ old('prenoms') }}">
+							@if ($errors->has('prenoms'))
+								<p class="text-danger">{{ $errors->first('prenoms') }}</p>
+							@endif
+						</div>
+					</div>
+
+					<!-- name= tel -->
+					<div class="item form-group">
+						<label class="col-form-label col-md-3 col-sm-3 label-align" for="tel">Téléphone <span class="required">*</span></label>
+						<div class="col-md-6 col-sm-9 ">
+							<input type="tel" id="tel" min="2" tabindex="1" required name="tel" class="form-control" value="{{ old('tel') }}">
+							@if ($errors->has('tel'))
+								<p class="text-danger">{{ $errors->first('tel') }}</p>
+							@endif
+						</div>
+					</div>
+
+					<!-- name= date_naiss -->
+					<div class="item form-group">
+						<label class="col-form-label col-md-3 col-sm-3 label-align" for="date_naiss">Date de Naissance <span class="required">*</span></label>
+						<div class="col-md-6 col-sm-9 ">
+							<input type="date" id="date_naiss" min="2" tabindex="1" required name="date_naiss" class="form-control" value="{{ old('date_naiss') }}">
+							@if ($errors->has('date_naiss'))
+								<p class="text-danger">{{ $errors->first('date_naiss') }}</p>
+							@endif
+						</div>
+					</div>
+
+					<!-- name= quartier_id -->
+					<div class="item form-group">
+						<label class="col-form-label col-md-3 col-sm-3 label-align">Quartier</label>
+						<div class="col-md-6 col-sm-9 ">
+							<select class="select2_single form-control" tabindex="2" name="quartier_id">
+								@foreach ($quartiers as $quartier)
+									<option value="{{ $quartier->id }}">{{ $quartier->libelle }}</option>
 								@endforeach
 							</select>
 						</div>
@@ -53,7 +87,7 @@
 					<div class="ln_solid"></div>
 					<div class="item form-group">
 						<div class="col-md-6 col-sm-6 offset-md-4">
-							<a href="{{ route('communes.index')}}" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i></a>
+							<a href="{{ route('prestataires.index')}}" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i></a>
 							<button class="btn btn-primary" type="reset">Effacer</button>
 							<input type="submit" class="btn btn-success">
 						</div>
