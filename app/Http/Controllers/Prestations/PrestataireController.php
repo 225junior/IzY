@@ -35,10 +35,10 @@ class PrestataireController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-			'nom'=>'required',
-			'prenoms'=>'required',
-			'nom'=>'required',
-			'nom'=>'required',
+			'nom'=>'required|min:2|max:70',
+			'prenoms'=>'required|min:2|max:70',
+			'tel'=>'required|digits_between:8,12',
+			'date_naiss'=>'required|date',
 		]);
 
     }

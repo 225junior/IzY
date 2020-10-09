@@ -72,10 +72,6 @@
 					</div>
 
 
-
-
-
-
 					<div class="item form-group">
 						<label class="col-form-label offset-md-3 col-md-2 col-sm-3 label-align" for="check">Active On/Off</label>
 						<div class="col-md-1 col-sm-2 ">
