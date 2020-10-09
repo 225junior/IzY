@@ -4,7 +4,7 @@
 
             <div class="row">
 
-			<div class="col-md-8 offset-md-2 col-sm-12  ">
+			<div class="col-md-12 col-sm-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Liste des prestataires</h2>
@@ -23,19 +23,20 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <th width="10%">#</th>
-                          <th width="40%">Prestataire</th>
-                          <th width="10%">Ville</th>
-                          <th width="10%">État</th>
-                          <th width="30%"></th>
+                          <th width="*">#</th>
+                          <th width="35%">Prestataire</th>
+                          <th width="*">Tel</th>
+                          <th width="30%">Quartier</th>
+                          <th width="*"></th>
                         </tr>
                       </thead>
                       <tbody>
 					  	@foreach ($prestataires as $prestataire)
 							<tr>
 								<th scope="row">{{ $prestataire->id }}</th>
-								<td><a href="{{ route('prestataires.show',$prestataire->id )}}"> {{ $prestataire->nom }} </a></td>
-								<td> {{ $prestataire->prenoms }} </td>
+								<td><a href="{{ route('prestataires.show',$prestataire->id )}}"> {{ $prestataire->nom }} {{ $prestataire->prenoms }} </a></td>
+								<td> {{ $prestataire->tel }} </td>
+								<td> {{ $prestataire->quartier->libelle }} </td>
 								<td>
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $prestataire->id }}">Supprimer</button>
 

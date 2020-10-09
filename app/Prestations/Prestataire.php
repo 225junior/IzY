@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prestataire extends Model
 {
-	public function user()
+	public function quartier()
 	{
-		return $this->belongsTo('App\User', 'foreign_key');
+		return $this->belongsTo('App\Ressources\Quartier');
 	}
 }
