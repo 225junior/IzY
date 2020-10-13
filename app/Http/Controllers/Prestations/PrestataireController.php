@@ -76,15 +76,11 @@ class PrestataireController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    /*Show the form for editing the specified resource*/
+    public function edit(Prestataire $prestataire)
     {
-        //
+        $quartiers = Quartier::where('id','<>',$prestataire->quartier->id)->get();
+        return view('prestations.prestataires.edit',compact('quartiers','prestataire'));
     }
 
     /**
@@ -94,17 +90,41 @@ class PrestataireController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Prestataire $prestataire)
     {
-        //
+        request()->validate([
+			'nom'=>'required|min:2|max:70',
+			'prenoms'=>'required|min:2|max:70',
+			'tel'=>'required|digits_between:8,12',
+			'date_naiss'=>'required|date',
+		]);
+
+		#update avec chekbox cochée
+		if ($request->active) {
+			Prestataire::find($prestataire->id)->update([
+			'nom'=>request()->nom,
+			'prenoms'=>request()->prenoms,
+			'tel'=>request()->tel,
+			'date_naiss'=>request()->date_naiss,
+			'quartier_id'=>request()->quartier_id,
+			'active'=>true
+			]);
+		}else{
+			#update sans chekbox
+			Prestataire::find($prestataire->id)->update([
+				'nom'=>request()->nom,
+				'prenoms'=>request()->prenoms,
+				'tel'=>request()->tel,
+				'quartier_id'=>request()->quartier_id,
+				'date_naiss'=>request()->date_naiss,
+				'active'=>false
+			]);
+		}
+
+		return redirect()->route('prestataires.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    /*Remove the specified resource from storage.*/
     public function destroy(Prestataire $prestataire)
     {
         Prestataire::destroy($prestataire->id);
