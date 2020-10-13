@@ -5,7 +5,7 @@
 	<div class="col-md-12 col-sm-12 ">
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>Creation de Prestataire</h2>
+				<h2>Enregistrement de Prestataire</h2>
 
 				<div class="clearfix"></div>
 			</div>
@@ -85,7 +85,7 @@
 						<div class="col-md-6 col-sm-6 offset-md-4">
 							<a href="{{ route('prestataires.index')}}" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i></a>
 							<button class="btn btn-primary" type="reset">Effacer</button>
-							<input type="submit" class="btn btn-success">
+							<input type="submit" class="btn btn-success" value="Enregistrer">
 						</div>
 					</div>
 

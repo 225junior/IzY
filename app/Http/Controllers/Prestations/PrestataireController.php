@@ -41,6 +41,28 @@ class PrestataireController extends Controller
 			'date_naiss'=>'required|date',
 		]);
 
+		#creation avec chekbox cochée
+		if ($request->active) {
+			Prestataire::create([
+			'nom'=>request()->nom,
+			'prenoms'=>request()->prenoms,
+			'tel'=>request()->tel,
+			'date_naiss'=>request()->date_naiss,
+			'quartier_id'=>request()->quartier_id,
+			'active'=>true
+			]);
+		}else{
+			#creation sans chekbox
+			Prestataire::create([
+				'nom'=>request()->nom,
+				'prenoms'=>request()->prenoms,
+				'tel'=>request()->tel,
+				'quartier_id'=>request()->quartier_id,
+				'date_naiss'=>request()->date_naiss,
+			]);
+		}
+
+		return redirect()->route('prestataires.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
     }
 
     /**
