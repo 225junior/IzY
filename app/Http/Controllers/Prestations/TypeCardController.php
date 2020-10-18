@@ -15,8 +15,8 @@ class TypeCardController extends Controller
      */
     public function index()
     {
-        $typecard = TypeCard::paginate('5');
-        return view('prestations.typecard.index',compact('typecards'));
+        $typecards = TypeCard::paginate('5');
+        return view('prestations.typecards.index',compact('typecards'));
     }
 
     /**
@@ -26,7 +26,7 @@ class TypeCardController extends Controller
      */
     public function create()
     {
-        //
+        return view('prestations.typecards.create');
     }
 
     /**
