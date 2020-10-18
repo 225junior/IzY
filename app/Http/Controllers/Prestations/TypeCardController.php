@@ -37,7 +37,24 @@ class TypeCardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+			'name'=>'required',
+		]);
+
+
+		if ($request->activate) {
+			Domaine::create([
+				'name'=>$request->libelle,
+				'active'=>$request->active
+			]);
+		}else{
+			Domaine::create([
+				'name'=>$request->libelle,
+				]);
+		}
+
+		
+		return redirect()->route('typecards.index')->with(['msg'=>'Enregistrement Effectué!']);
     }
 
     /**
@@ -59,7 +76,7 @@ class TypeCardController extends Controller
      */
     public function edit(TypeCard $typeCard)
     {
-        //
+        return view('prestations.typecards.edit',compact('typecard'));
     }
 
     /**
@@ -71,7 +88,9 @@ class TypeCardController extends Controller
      */
     public function update(Request $request, TypeCard $typeCard)
     {
-        //
+        $request()->validate([
+			'name'=>'required',
+		]);
     }
 
     /**
@@ -82,6 +101,7 @@ class TypeCardController extends Controller
      */
     public function destroy(TypeCard $typeCard)
     {
-        //
+		TypeCard::destroy($typeCard);
+		return redirect()->route('typecards.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
     }
 }

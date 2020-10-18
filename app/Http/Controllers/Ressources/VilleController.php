@@ -143,10 +143,10 @@ class VilleController extends Controller
 
 
 
-	 /*Remove the specified resource from storage.*/
-	 public function destroy(Ville $ville)
-	 {
-		 Ville::destroy($ville->id);
-		 return redirect()->route('villes.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
-	 }
+	/*Remove the specified resource from storage.*/
+	public function destroy(Ville $ville)
+	{
+		Ville::destroy($ville->id);
+		return redirect()->route('villes.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
+	}
 }

@@ -33,12 +33,12 @@ class DomaineController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-			'libelle'=>'required',
+			'name'=>'required',
 			'active'=>'required',
 		]);
 
 		Domaine::create([
-			'libelle'=>$request->libelle,
+			'name'=>$request->libelle,
 			'active'=>$request->active
 		]);
 		return redirect()->route('domaines.index')->with(['msg'=>'Enregistrement Effectué!']);
@@ -52,7 +52,7 @@ class DomaineController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -61,9 +61,9 @@ class DomaineController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Domaine $domaine)
     {
-        //
+        return view('prestations.typecards.edit',compact('domaine'));
     }
 
     /**
@@ -84,8 +84,9 @@ class DomaineController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Domaine $domaine)
     {
-        //
+		Domaine::destroy($domaine);
+		return redirect()->route('domaines.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
     }
 }
