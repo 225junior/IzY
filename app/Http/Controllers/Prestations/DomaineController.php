@@ -15,7 +15,8 @@ class DomaineController extends Controller
      */
     public function index()
     {
-        //
+		$domaines = Domaine::paginate('5');
+        return view('prestations.domaines.index',compact('domaines'));
     }
 
     /**
@@ -25,18 +26,22 @@ class DomaineController extends Controller
      */
     public function create()
     {
-        //
+        return view('prestations.domaines.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /*Store a newly created resource in storage*/
     public function store(Request $request)
     {
-        //
+        $request->validate([
+			'libelle'=>'required',
+			'active'=>'required',
+		]);
+
+		Domaine::create([
+			'libelle'=>$request->libelle,
+			'active'=>$request->active
+		]);
+		return redirect()->route('domaines.index')->with(['msg'=>'Enregistrement Effectué!']);
     }
 
     /**
