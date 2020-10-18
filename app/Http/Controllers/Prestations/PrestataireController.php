@@ -37,7 +37,7 @@ class PrestataireController extends Controller
         request()->validate([
 			'nom'=>'required|min:2|max:70',
 			'prenoms'=>'required|min:2|max:70',
-			'tel'=>'required|digits_between:8,12',
+			'tel'=>'required|digits_between:8,13',
 			'date_naiss'=>'required|date',
 		]);
 
@@ -95,7 +95,7 @@ class PrestataireController extends Controller
         request()->validate([
 			'nom'=>'required|min:2|max:70',
 			'prenoms'=>'required|min:2|max:70',
-			'tel'=>'required|digits_between:8,12',
+			'tel'=>'required|digits_between:8,13',
 			'date_naiss'=>'required|date',
 		]);
 
