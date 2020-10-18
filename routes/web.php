@@ -18,6 +18,8 @@ route::middleware('auth')->group(function(){
 
 	Route::namespace('Prestations')->group(function(){
 		Route::resource('prestataires', 'PrestataireController');
+		Route::resource('typecards', 'TypeCardController');
+		Route::resource('domaines', 'DomaineController');
 	});
 
 	Route::namespace('Ressources')->group(function(){
