@@ -19,6 +19,11 @@ class TypeCardController extends Controller
         return view('prestations.typecards.index',compact('typecards'));
     }
 
+
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,6 +33,12 @@ class TypeCardController extends Controller
     {
         return view('prestations.typecards.create');
     }
+
+
+
+
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -42,18 +53,17 @@ class TypeCardController extends Controller
 		]);
 
 
-		if ($request->activate) {
+		if ($request->active) {
 			Domaine::create([
 				'name'=>$request->libelle,
-				'active'=>$request->active
+				'active'=>true
 			]);
 		}else{
 			Domaine::create([
 				'name'=>$request->libelle,
-				]);
+			]);
 		}
 
-		
 		return redirect()->route('typecards.index')->with(['msg'=>'Enregistrement Effectué!']);
     }
 
@@ -91,6 +101,16 @@ class TypeCardController extends Controller
         $request()->validate([
 			'name'=>'required',
 		]);
+		if ($request()->active) {
+			TypeCard::find($typeCard)->update([
+				'libelle'=>$request->name,
+				'active'=>true,
+			]);
+		}else{
+			TypeCard::find($typeCard)->update([
+				'libelle'=>$request->name,
+			]);
+		}
     }
 
     /**
