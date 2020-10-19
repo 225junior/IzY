@@ -78,7 +78,7 @@ class DomaineController extends Controller
      */
     public function edit(Domaine $domaine)
     {
-        return view('prestations.typecards.edit',compact('domaine'));
+        return view('prestations.domaines.edit',compact('domaine'));
     }
 
     /**
@@ -90,17 +90,18 @@ class DomaineController extends Controller
      */
     public function update(Request $request,Domaine $domaine)
     {
-		$request()->validate([
+		$request->validate([
 			'name'=>'required',
 		]);
-		if ($request()->active) {
-			Domaine::find($domaine)->update([
+		if ($request->active) {
+			Domaine::find($domaine->id)->update([
 				'libelle'=>$request->name,
 				'active'=>true,
 			]);
 		}else{
-			Domaine::find($domaine)->update([
+			Domaine::find($domaine->id)->update([
 				'libelle'=>$request->name,
+				'active'=>false,
 			]);
 		}
 		return redirect()->route('domaines.index')->with(['msg'=>'Modiffication Effectuée!']);
