@@ -11,7 +11,7 @@
 			</div>
 			<div class="x_content">
 				<br>
-				<form data-parsley-validate="" action="{{route('domaines.store')}}" method="POST" class="form-horizontal form-label-left" novalidate="">
+				<form data-parsley-validate="" action="{{route('typecards.store')}}" method="POST" class="form-horizontal form-label-left" novalidate="">
 					@csrf
 
 					<!-- name= type de carte -->

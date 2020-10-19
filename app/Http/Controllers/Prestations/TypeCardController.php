@@ -46,20 +46,21 @@ class TypeCardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,TypeCard $typeCard)
     {
         $request->validate([
 			'name'=>'required',
 		]);
 
 		if ($request->active) {
-			Domaine::create([
+			TypeCard::create([
 				'libelle'=>$request->name,
 				'active'=>true
 			]);
 		}else{
-			Domaine::create([
+			TypeCard::create([
 				'libelle'=>$request->name,
+				'active'=>false
 			]);
 		}
 
@@ -85,6 +86,7 @@ class TypeCardController extends Controller
      */
     public function edit(TypeCard $typeCard)
     {
+		$typeCard = TypeCard::findOrFail($typeCard->id);
         return view('prestations.typecards.edit',compact('typecard'));
     }
 
@@ -97,17 +99,19 @@ class TypeCardController extends Controller
      */
     public function update(Request $request, TypeCard $typeCard)
     {
-        $request()->validate([
+        $request->validate([
 			'name'=>'required',
 		]);
+		dd($typeCard);
 		if ($request()->active) {
-			TypeCard::find($typeCard)->update([
+			TypeCard::find($typeCard->id)->update([
 				'libelle'=>$request->name,
 				'active'=>true,
 			]);
 		}else{
-			TypeCard::find($typeCard)->update([
+			TypeCard::find($typeCard->id)->update([
 				'libelle'=>$request->name,
+				'active'=>false,
 			]);
 		}
 		return redirect()->route('typecards.index')->with(['msg'=>'Modiffication Effectuée!']);
