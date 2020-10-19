@@ -17,7 +17,12 @@ class DomaineController extends Controller
     {
 		$domaines = Domaine::paginate('5');
         return view('prestations.domaines.index',compact('domaines'));
-    }
+	}
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -29,18 +34,28 @@ class DomaineController extends Controller
         return view('prestations.domaines.create');
     }
 
+
+
+
+
+
     /*Store a newly created resource in storage*/
     public function store(Request $request)
     {
         $request->validate([
 			'name'=>'required',
-			'active'=>'required',
 		]);
-
-		Domaine::create([
-			'name'=>$request->libelle,
-			'active'=>$request->active
-		]);
+		if ($request->active) {
+			Domaine::create([
+				'name'=>$request->libelle,
+				'active'=>true
+			]);
+		}else{
+			Domaine::create([
+				'name'=>$request->libelle,
+				'active'=>$request->active
+			]);
+		}
 		return redirect()->route('domaines.index')->with(['msg'=>'Enregistrement Effectué!']);
     }
 
@@ -73,9 +88,22 @@ class DomaineController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Domaine $domaine)
     {
-        //
+		$request()->validate([
+			'name'=>'required',
+		]);
+		if ($request()->active) {
+			Domaine::find($domaine)->update([
+				'libelle'=>$request->name,
+				'active'=>true,
+			]);
+		}else{
+			Domaine::find($domaine)->update([
+				'libelle'=>$request->name,
+			]);
+		}
+		return redirect()->route('domaines.index')->with(['msg'=>'Modiffication Effectuée!']);
     }
 
     /**

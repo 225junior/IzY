@@ -111,6 +111,8 @@ class TypeCardController extends Controller
 				'libelle'=>$request->name,
 			]);
 		}
+		return redirect()->route('typecards.index')->with(['msg'=>'Modiffication Effectuée!']);
+
     }
 
     /**
