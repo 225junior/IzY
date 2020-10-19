@@ -47,13 +47,13 @@ class DomaineController extends Controller
 		]);
 		if ($request->active) {
 			Domaine::create([
-				'name'=>$request->libelle,
+				'libelle'=>$request->name,
 				'active'=>true
 			]);
 		}else{
 			Domaine::create([
-				'name'=>$request->libelle,
-				'active'=>$request->active
+				'libelle'=>$request->name,
+				'active'=>false
 			]);
 		}
 		return redirect()->route('domaines.index')->with(['msg'=>'Enregistrement Effectué!']);
@@ -114,7 +114,7 @@ class DomaineController extends Controller
      */
     public function destroy(Domaine $domaine)
     {
-		Domaine::destroy($domaine);
+		Domaine::findOrFail($domaine->id)->delete();
 		return redirect()->route('domaines.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
     }
 }

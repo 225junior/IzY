@@ -20,28 +20,28 @@
 
                             <br>
 
-                            <!-- sidebar menu -->
-                            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                                <div class="menu_section active">
-                                    <ul class="nav side-menu" style="">
-                                        <li class="active"><a><i class="fa fa-home"></i> Home</a></li>
-                                        <li ><a><i class="fa fa-users"></i> Users</a></li>
-                                        <li ><a href="{{ Route('prestataires.index') }}"><i class="fa fa-briefcase"></i> Prestataires</a></li>
-                                        <li ><a href="{{ Route('domaines.index') }}"><i class="fa fa-briefcase"></i> Domaines</a></li>
-                                        <li ><a href="{{ Route('typecards.index') }}"><i class="fa fa-briefcase"></i> {{ __("Cartes d'identité")}} </a></li>
-                                        <li>
-                                            <a><i class="fa fa-edit"></i> Ressources <span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li><a href="{{ Route('regions.index') }}">Regions</a></li>
-                                                <li><a href="{{ Route('villes.index') }}">Viles</a></li>
-                                                <li><a href="{{ Route('communes.index') }}">Communes</a></li>
-                                                <li><a href="{{ Route('quartiers.index') }}">Quartiers</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- /sidebar menu -->
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                <div class="menu_section active">
+                    <ul class="nav side-menu" style="">
+                        <li class="active"><a><i class="fa fa-home"></i> Home</a></li>
+                        <li ><a><i class="fa fa-users"></i> Users</a></li>
+                        <li ><a href="{{ Route('prestataires.index') }}"><i class="fa fa-briefcase"></i> Prestataires</a></li>
+                        <li ><a href="{{ Route('domaines.index') }}"><i class="fa fa-briefcase"></i> Domaines</a></li>
+                        <li ><a href="{{ Route('typecards.index') }}"><i class="fa fa-briefcase"></i> {{ __("Cartes d'identité")}} </a></li>
+                        <li>
+                            <a><i class="fa fa-edit"></i> Ressources <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href="{{ Route('regions.index') }}">Regions</a></li>
+                                <li><a href="{{ Route('villes.index') }}">Viles</a></li>
+                                <li><a href="{{ Route('communes.index') }}">Communes</a></li>
+                                <li><a href="{{ Route('quartiers.index') }}">Quartiers</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /sidebar menu -->
 
                         </div>
 

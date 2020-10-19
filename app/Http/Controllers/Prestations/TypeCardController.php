@@ -52,15 +52,14 @@ class TypeCardController extends Controller
 			'name'=>'required',
 		]);
 
-
 		if ($request->active) {
 			Domaine::create([
-				'name'=>$request->libelle,
+				'libelle'=>$request->name,
 				'active'=>true
 			]);
 		}else{
 			Domaine::create([
-				'name'=>$request->libelle,
+				'libelle'=>$request->name,
 			]);
 		}
 
@@ -123,7 +122,7 @@ class TypeCardController extends Controller
      */
     public function destroy(TypeCard $typeCard)
     {
-		TypeCard::destroy($typeCard);
+		TypeCard::findOrFail($typeCard->id)->delete();
 		return redirect()->route('typecards.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
     }
 }

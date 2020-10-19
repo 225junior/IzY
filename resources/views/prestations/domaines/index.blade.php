@@ -44,13 +44,13 @@
                       <div class="modal-content">
 
                         <div class="modal-header">
-                          <h4 class="modal-title" id="myModalLabel2">Supprimer  {{ $domaine->nom }}</h4>
+                          <h4 class="modal-title" id="myModalLabel2">Supprimer  {{ $domaine->libelle }}</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
                           </button>
                         </div>
                         <div class="modal-body">
                           <h4>Attention !</h4>
-                          <p>Voulez vou vraiment supprimer {{ $domaine->nom }} ?</p>
+                          <p>Voulez vou vraiment supprimer {{ $domaine->libelle }} ?</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
