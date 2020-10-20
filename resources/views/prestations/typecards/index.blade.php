@@ -25,6 +25,7 @@
                         <tr>
                           <th width="*">#</th>
                           <th width="30%">Type</th>
+                          <th width="*">État</th>
                           <th width="*"></th>
                         </tr>
                       </thead>

@@ -86,8 +86,7 @@ class TypeCardController extends Controller
      */
     public function edit(TypeCard $typeCard)
     {
-		$typeCard = TypeCard::findOrFail($typeCard->id);
-        return view('prestations.typecards.edit',compact('typecard'));
+        return view('prestations.typecards.edit',compact('typeCard'));
     }
 
     /**
@@ -102,7 +101,7 @@ class TypeCardController extends Controller
         $request->validate([
 			'name'=>'required',
 		]);
-		dd($typeCard);
+
 		if ($request()->active) {
 			TypeCard::find($typeCard->id)->update([
 				'libelle'=>$request->name,
@@ -126,7 +125,7 @@ class TypeCardController extends Controller
      */
     public function destroy(TypeCard $typeCard)
     {
-		TypeCard::findOrFail($typeCard->id)->delete();
+		TypeCard::find($typeCard->id)->delete();
 		return redirect()->route('typecards.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
     }
 }
