@@ -15,8 +15,8 @@ class TypeCardController extends Controller
      */
     public function index()
     {
-        $typecards = TypeCard::paginate('5');
-        return view('prestations.typecards.index',compact('typecards'));
+        $typeCards = TypeCard::paginate('5');
+        return view('prestations.typecards.index',compact('typeCards'));
     }
 
 
@@ -125,7 +125,13 @@ class TypeCardController extends Controller
      */
     public function destroy(TypeCard $typeCard)
     {
-		TypeCard::find($typeCard->id)->delete();
+        TypeCard::destroy($typeCard->id);
+        // dd($typeCard->id);
+        // $flight = App\Flight::find(1);
+
+        // $flight->delete();
+
+		// TypeCard::find($typeCard->id)->delete();
 		return redirect()->route('typecards.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
     }
 }

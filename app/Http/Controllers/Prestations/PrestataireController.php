@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Prestations\Prestataire;
 use App\Ressources\Quartier;
+use App\Prestations\TypeCard;
 
 
 class PrestataireController extends Controller
@@ -25,7 +26,8 @@ class PrestataireController extends Controller
     public function create()
     {
         $quartiers = Quartier::all();
-        return view('prestations.prestataires.create',compact('quartiers'));
+        $typeCards = TypeCard::all();
+        return view('prestations.prestataires.create',compact('quartiers','typeCards'));
     }
 
 
@@ -39,6 +41,7 @@ class PrestataireController extends Controller
 			'prenoms'=>'required|min:2|max:70',
 			'tel'=>'required|digits_between:8,13',
 			'date_naiss'=>'required|date',
+			'numCard'=>'required',
 		]);
 
 		#creation avec chekbox cochée
@@ -49,6 +52,8 @@ class PrestataireController extends Controller
 			'tel'=>request()->tel,
 			'date_naiss'=>request()->date_naiss,
 			'quartier_id'=>request()->quartier_id,
+			'type_card_id'=>request()->typeCard_id,
+			'numCard'=>request()->numCard,
 			'active'=>true
 			]);
 		}else{
@@ -59,6 +64,8 @@ class PrestataireController extends Controller
 				'tel'=>request()->tel,
 				'quartier_id'=>request()->quartier_id,
 				'date_naiss'=>request()->date_naiss,
+				'type_card_id'=>request()->typeCard_id,
+				'numCard'=>request()->numCard,
 			]);
 		}
 

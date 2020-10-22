@@ -30,7 +30,7 @@
 					<div class="item form-group">
 						<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Prénoms <span class="required">*</span></label>
 						<div class="col-md-6 col-sm-9 ">
-							<input type="text" id="last-name" min="2" tabindex="1" required name="prenoms" class="form-control" value="{{ old('prenoms') }}">
+							<input type="text" id="last-name" min="2" tabindex="2" required name="prenoms" class="form-control" value="{{ old('prenoms') }}">
 							@if ($errors->has('prenoms'))
 								<p class="text-danger">{{ $errors->first('prenoms') }}</p>
 							@endif
@@ -41,7 +41,7 @@
 					<div class="item form-group">
 						<label class="col-form-label col-md-3 col-sm-3 label-align" for="tel">Téléphone <span class="required">*</span></label>
 						<div class="col-md-6 col-sm-9 ">
-							<input type="tel" id="tel" min="2" tabindex="1" required name="tel" class="form-control" value="{{ old('tel') }}">
+							<input type="tel" id="tel" min="2" tabindex="3" required name="tel" class="form-control" value="{{ old('tel') }}">
 							@if ($errors->has('tel'))
 								<p class="text-danger">{{ $errors->first('tel') }}</p>
 							@endif
@@ -52,7 +52,7 @@
 					<div class="item form-group">
 						<label class="col-form-label col-md-3 col-sm-3 label-align" for="date_naiss">Date de Naissance <span class="required">*</span></label>
 						<div class="col-md-6 col-sm-9 ">
-							<input type="date" id="date_naiss" min="2" tabindex="1" required name="date_naiss" class="form-control" value="{{ old('date_naiss') }}">
+							<input type="date" id="date_naiss" min="2" tabindex="4" required name="date_naiss" class="form-control" value="{{ old('date_naiss') }}">
 							@if ($errors->has('date_naiss'))
 								<p class="text-danger">{{ $errors->first('date_naiss') }}</p>
 							@endif
@@ -63,13 +63,38 @@
 					<div class="item form-group">
 						<label class="col-form-label col-md-3 col-sm-3 label-align">Quartier</label>
 						<div class="col-md-6 col-sm-9 ">
-							<select class="select2_single form-control" tabindex="2" name="quartier_id">
+							<select class="select2_single form-control" tabindex="5" name="quartier_id">
 								@foreach ($quartiers as $quartier)
 									<option value="{{ $quartier->id }}">{{ $quartier->libelle }}</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
+
+					<!-- name= type_card_id -->
+					<div class="item form-group">
+						<label class="col-form-label col-md-3 col-sm-3 label-align">Type de carte</label>
+						<div class="col-md-6 col-sm-9 ">
+							<select class="select2_single form-control" tabindex="6" name="typeCard_id">
+								@foreach ($typeCards as $typeCard)
+									<option value="{{ $typeCard->id }}">{{ $typeCard->libelle }}</option>
+								@endforeach
+							</select>
+						</div>
+					</div>
+
+
+					<!-- name= numero de carte -->
+					<div class="item form-group">
+						<label class="col-form-label col-md-3 col-sm-3 label-align" for="numCard">Numéro de carte <span class="required">*</span></label>
+						<div class="col-md-6 col-sm-9 ">
+							<input type="string" id="numCard" min="2" tabindex="7" required name="numCard" class="form-control" value="{{ old('numCard') }}">
+							@if ($errors->has('numCard'))
+								<p class="text-danger">{{ $errors->first('numCard') }}</p>
+							@endif
+						</div>
+					</div>
+
 
 
 					<div class="item form-group">

@@ -30,32 +30,32 @@
                         </tr>
                       </thead>
                       <tbody>
-					  	@foreach ($typecards as $typecard)
+					  	@foreach ($typeCards as $typeCard)
 							<tr>
-								<th scope="row">{{ $typecard->id }}</th>
-								<td><a href="{{ route('typecards.show',$typecard->id )}}"> {{ $typecard->libelle }} </a></td>
+								<th scope="row">{{ $typeCard->id }}</th>
+								<td><a href="{{ route('typecards.show',$typeCard->id )}}"> {{ $typeCard->libelle }} </a></td>
 
-								<th scope="row"> <i class="fa fa-toggle-{{ $typecard->active ==1 ?  'on' : 'off'}}"></i> </th>
+								<th scope="row"> <i class="fa fa-toggle-{{ $typeCard->active ==1 ?  'on' : 'off'}}"></i> </th>
 								<td>
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $typecard->id }}">Supprimer</button>
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $typeCard->id }}">Supprimer</button>
 
 
-                  <div class="modal fade modal-{{ $typecard->id }}" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+                  <div class="modal fade modal-{{ $typeCard->id }}" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
                     <div class="modal-dialog modal-sm">
                       <div class="modal-content">
 
                         <div class="modal-header">
-                          <h4 class="modal-title" id="myModalLabel2">Supprimer  {{ $typecard->libelle }}</h4>
+                          <h4 class="modal-title" id="myModalLabel2">Supprimer  {{ $typeCard->libelle }}</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
                           </button>
                         </div>
                         <div class="modal-body">
                           <h4>Attention !</h4>
-                          <p>Voulez vou vraiment supprimer {{ $typecard->libelle }} ?</p>
+                          <p>Voulez vou vraiment supprimer {{ $typeCard->libelle }} ?</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                          <form method="POST" action="{{ route('typecards.destroy',$typecard->id) }}" class="col-md-5">
+                          <form method="POST" action="{{ route('typecards.destroy',$typeCard->id) }}" class="col-md-5">
                             @csrf
                             @method('DELETE')
                             <input class="btn btn-xs btn-danger" type="submit" value="🗑️">
@@ -67,7 +67,7 @@
                     </div>
                   </div>
 
-								    <a class="btn btn-xs btn-info col-md-3" href="{{ route('typecards.edit',$typecard->id) }}">🖊️</a>
+								    <a class="btn btn-xs btn-info col-md-3" href="{{ route('typecards.edit',$typeCard->id) }}">🖊️</a>
 								</td>
 							</tr>
 						@endforeach
@@ -75,7 +75,7 @@
                       </tbody>
                     </table>
 
-					{{ $typecards->links() }}
+					{{ $typeCards->links() }}
 
 
 
