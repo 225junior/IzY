@@ -87,7 +87,8 @@ class PrestataireController extends Controller
     public function edit(Prestataire $prestataire)
     {
         $quartiers = Quartier::where('id','<>',$prestataire->quartier->id)->get();
-        return view('prestations.prestataires.edit',compact('quartiers','prestataire'));
+        $typeCards = TypeCard::where('id','<>',$prestataire->typeCard->id)->get();
+        return view('prestations.prestataires.edit',compact('quartiers','prestataire','typeCards'));
     }
 
     /**
@@ -104,6 +105,7 @@ class PrestataireController extends Controller
 			'prenoms'=>'required|min:2|max:70',
 			'tel'=>'required|digits_between:8,13',
 			'date_naiss'=>'required|date',
+			'numCard'=>'required',
 		]);
 
 		#update avec chekbox cochée
@@ -114,6 +116,8 @@ class PrestataireController extends Controller
 			'tel'=>request()->tel,
 			'date_naiss'=>request()->date_naiss,
 			'quartier_id'=>request()->quartier_id,
+			'type_card_id'=>request()->typeCard_id,
+			'numCard'=>request()->numCard,
 			'active'=>true
 			]);
 		}else{
@@ -124,6 +128,8 @@ class PrestataireController extends Controller
 				'tel'=>request()->tel,
 				'quartier_id'=>request()->quartier_id,
 				'date_naiss'=>request()->date_naiss,
+				'type_card_id'=>request()->typeCard_id,
+				'numCard'=>request()->numCard,
 				'active'=>false
 			]);
 		}

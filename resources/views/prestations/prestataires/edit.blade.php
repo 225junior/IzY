@@ -77,11 +77,36 @@
 					</div>
 
 
+					<!-- name= type_card_id -->
+					<div class="item form-group">
+						<label class="col-form-label col-md-3 col-sm-3 label-align">Type de carte</label>
+						<div class="col-md-6 col-sm-9 ">
+							<select class="select2_single form-control" tabindex="6" name="type_card_id">
+								@foreach ($typeCards as $typeCard)
+									<option value="{{ $typeCard->id }}">{{ $typeCard->libelle }}</option>
+								@endforeach
+								<option selected value="{{ $prestataire->$typeCard->id }}">{{ $prestataire->$typeCard->libelle }}</option>
+							</select>
+						</div>
+					</div>
+
+
+					<!-- name= numero de carte -->
+					<div class="item form-group">
+						<label class="col-form-label col-md-3 col-sm-3 label-align" for="numCard">Numéro de carte <span class="required">*</span></label>
+						<div class="col-md-6 col-sm-9 ">
+							<input type="string" id="numCard" min="2" tabindex="7" required name="numCard" class="form-control" value="{{ old('numCard') }}">
+							@if ($errors->has('numCard'))
+								<p class="text-danger">{{ $errors->first('numCard') }}</p>
+							@endif
+						</div>
+					</div>
+
 
 					<div class="item form-group">
 						<label class="col-form-label offset-md-3 col-md-2 col-sm-3 label-align" for="check">Active On/Off</label>
 						<div class="col-md-1 col-sm-2 ">
-							<input type="checkbox" id="check" name="active" tabindex="3" class="form-control" {{ $prestataire->active ==1 ?  'checked' : ''}}>
+							<input type="checkbox" id="check" name="active" tabindex="8" class="form-control" {{ $prestataire->active ==1 ?  'checked' : ''}}>
 						</div>
 					</div>
 
@@ -89,9 +114,9 @@
 					<div class="ln_solid"></div>
 					<div class="item form-group">
 						<div class="col-md-6 col-sm-6 offset-md-4">
-							<a href="{{ route('prestataires.index')}}" class="btn btn-primary" tabindex="4" type="button"><i class="fa fa-arrow-left"></i></a>
-							<input class="btn btn-primary" type="reset" tabindex="5">
-							<input type="submit" class="btn btn-success" value="Valider" tabindex="6">
+							<a href="{{ route('prestataires.index')}}" class="btn btn-primary" tabindex="9" type="button"><i class="fa fa-arrow-left"></i></a>
+							<input class="btn btn-primary" type="reset" tabindex="10">
+							<input type="submit" class="btn btn-success" value="Valider" tabindex="11">
 						</div>
 					</div>
 
