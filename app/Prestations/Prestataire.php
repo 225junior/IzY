@@ -12,4 +12,10 @@ class Prestataire extends Model
 	{
 		return $this->belongsTo('App\Ressources\Quartier');
 	}
+
+	
+	public function typeCard()
+	{
+		return $this->belongsTo('App\Prestations\TypeCard');
+	}
 }
