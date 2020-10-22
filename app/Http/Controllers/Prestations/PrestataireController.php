@@ -87,7 +87,8 @@ class PrestataireController extends Controller
     public function edit(Prestataire $prestataire)
     {
         $quartiers = Quartier::where('id','<>',$prestataire->quartier->id)->get();
-        $typeCards = TypeCard::where('id','<>',$prestataire->typeCard->id)->get();
+		$typeCards = TypeCard::where('id','<>',$prestataire->typeCard->id)->get();
+		dd($prestataire);
         return view('prestations.prestataires.edit',compact('quartiers','prestataire','typeCards'));
     }
 
