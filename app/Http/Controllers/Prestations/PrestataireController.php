@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Prestations;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Prestations\Prestataire;
 use App\Ressources\Quartier;
 use App\Prestations\TypeCard;
@@ -136,6 +137,9 @@ class PrestataireController extends Controller
 
 		return redirect()->route('prestataires.index')->withErrors(['msg'=>'Enregistrement Effectué!']);
     }
+
+
+
 
     /*Remove the specified resource from storage.*/
     public function destroy(Prestataire $prestataire)

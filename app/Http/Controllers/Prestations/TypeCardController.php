@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Prestations;
-
 use App\Http\Controllers\Controller;
-use App\Prestations\TypeCard;
 use Illuminate\Http\Request;
+
+use App\Prestations\TypeCard;
 
 class TypeCardController extends Controller
 {
@@ -15,7 +15,7 @@ class TypeCardController extends Controller
      */
     public function index()
     {
-        $typeCards = TypeCard::paginate('5');
+        $typeCards = TypeCard::paginate(5);
         return view('prestations.typecards.index',compact('typeCards'));
     }
 
@@ -67,26 +67,25 @@ class TypeCardController extends Controller
 		return redirect()->route('typecards.index')->with(['msg'=>'Enregistrement Effectué!']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Prestations\TypeCard  $typeCard
-     * @return \Illuminate\Http\Response
-     */
+
+
+
+
+    /*Display the specified resource.*/
     public function show(TypeCard $typeCard)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Prestations\TypeCard  $typeCard
-     * @return \Illuminate\Http\Response
-     */
+
+
+
+
+
+
+    /*Show the form for editing the specified resource.*/
     public function edit(TypeCard $typeCard)
     {
-		dd($typeCard);
         return view('prestations.typecards.edit',compact('typeCard'));
     }
 
@@ -118,21 +117,11 @@ class TypeCardController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Prestations\TypeCard  $typeCard
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(TypeCard $typeCard)
+
+    /*Remove the specified resource from storage.*/
+    public function destroy(TypeCard  $typeCard)
     {
         TypeCard::destroy($typeCard->id);
-        // dd($typeCard->id);
-        // $flight = App\Flight::find(1);
-
-        // $flight->delete();
-
-		// TypeCard::find($typeCard->id)->delete();
 		return redirect()->route('typecards.index')->withErrors(['msg' => 'Suppresion éffectuée !']);
-    }
+	}
 }

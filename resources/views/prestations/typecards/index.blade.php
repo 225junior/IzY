@@ -55,7 +55,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                          <form method="POST" action="{{ route('typecards.destroy',$typeCard->id) }}" class="col-md-5">
+                          <form method="POST" action="{{ route('typecards.destroy', $typeCard->id ) }}" class="col-md-5">
                             @csrf
                             @method('DELETE')
                             <input class="btn btn-xs btn-danger" type="submit" value="🗑️">
