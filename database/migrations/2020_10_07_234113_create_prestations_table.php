@@ -73,6 +73,7 @@ class CreatePrestationsTable extends Migration
 			$table->foreign('quartier_id')->references('id')->on('quartiers')->onDelete('cascade')->onUpdate('cascade');
 			$table->unsignedInteger('type_card_id');
 			$table->foreign('type_card_id')->references('id')->on('type_cards')->onDelete('cascade')->onUpdate('cascade');
+			$table->string('numCard');
             $table->boolean('active')->default(false);
             $table->timestamps();
         });
