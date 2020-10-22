@@ -11,7 +11,6 @@
 			</div>
 			<div class="x_content">
 				<br>
-<!-- <?php dd($typeCard);?> -->
 				<form data-parsley-validate="" action="{{route('typecards.update',$typeCard->id)}}" method="POST" class="form-horizontal form-label-left">
 					@csrf
 					@method('PUT')

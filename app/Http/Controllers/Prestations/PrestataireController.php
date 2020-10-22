@@ -88,7 +88,6 @@ class PrestataireController extends Controller
     {
         $quartiers = Quartier::where('id','<>',$prestataire->quartier->id)->get();
 		$typeCards = TypeCard::where('id','<>',$prestataire->typeCard->id)->get();
-		dd($prestataire);
         return view('prestations.prestataires.edit',compact('quartiers','prestataire','typeCards'));
     }
 
