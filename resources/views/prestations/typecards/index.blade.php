@@ -51,7 +51,7 @@
                         </div>
                         <div class="modal-body">
                           <h4>Attention !</h4>
-                          <p>Voulez vou vraiment supprimer {{ $typeCard->libelle }} ?</p>
+                          <p>Voulez vou vraiment supprimer {{ $typeCard->libelle }} {{ $typeCard->id }} ?</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>

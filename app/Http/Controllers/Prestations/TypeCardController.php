@@ -86,6 +86,7 @@ class TypeCardController extends Controller
      */
     public function edit(TypeCard $typeCard)
     {
+		dd($typeCard);
         return view('prestations.typecards.edit',compact('typeCard'));
     }
 
