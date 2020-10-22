@@ -66,8 +66,7 @@
                       </div>
                     </div>
                   </div>
-
-								    <a class="btn btn-xs btn-info col-md-3" href="{{ route('typecards.edit',$typeCard->id) }}">🖊️</a>
+							  <a class="btn btn-xs btn-info col-md-3" href="{{ route('typecards.edit',$typeCard->id) }}">🖊️</a>
 								</td>
 							</tr>
 						@endforeach

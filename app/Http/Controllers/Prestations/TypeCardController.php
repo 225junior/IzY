@@ -86,7 +86,7 @@ class TypeCardController extends Controller
     /*Show the form for editing the specified resource.*/
     public function edit(TypeCard $typeCard)
     {
-        return view('prestations.typecards.edit',compact('typeCard'));
+        return view('prestations.Typecards.edit',compact('typeCard'));
     }
 
     /**
