@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Prestations;
 
+use App\Http\Controllers\Controller;
 use App\Prestations\Card;
 use Illuminate\Http\Request;
 
