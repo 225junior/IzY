@@ -54,8 +54,8 @@ class CreatePrestationsTable extends Migration
             $table->timestamps();
 		});
 
-		//creation de type_cards
-		Schema::create('type_cards',function(Blueprint $table){
+		//creation de cards
+		Schema::create('cards',function(Blueprint $table){
 			$table->increments('id');
 			$table->string('libelle');
 			$table->boolean('active')->default(false);
@@ -71,8 +71,8 @@ class CreatePrestationsTable extends Migration
 			$table->date('date_naiss');
 			$table->unsignedInteger('quartier_id');
 			$table->foreign('quartier_id')->references('id')->on('quartiers')->onDelete('cascade')->onUpdate('cascade');
-			$table->unsignedInteger('type_card_id');
-			$table->foreign('type_card_id')->references('id')->on('type_cards')->onDelete('cascade')->onUpdate('cascade');
+			$table->unsignedInteger('card_id');
+			$table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade')->onUpdate('cascade');
 			$table->string('numCard');
             $table->boolean('active')->default(false);
             $table->timestamps();
@@ -106,6 +106,6 @@ class CreatePrestationsTable extends Migration
         Schema::dropIfExists('ligne_tarifs');
         Schema::dropIfExists('prestataires');
         Schema::dropIfExists('abonnements');
-        Schema::dropIfExists('type_cards');
+        Schema::dropIfExists('cards');
     }
 }
