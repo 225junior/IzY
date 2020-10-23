@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Prestations\Prestataire;
 use App\Ressources\Quartier;
-use App\Prestations\TypeCard;
+use App\Prestations\Card;
 
 
 class PrestataireController extends Controller
@@ -27,8 +27,8 @@ class PrestataireController extends Controller
     public function create()
     {
         $quartiers = Quartier::all();
-        $typeCards = TypeCard::all();
-        return view('prestations.prestataires.create',compact('quartiers','typeCards'));
+        $cards = Card::all();
+        return view('prestations.prestataires.create',compact('quartiers','cards'));
     }
 
 
@@ -53,7 +53,7 @@ class PrestataireController extends Controller
 			'tel'=>request()->tel,
 			'date_naiss'=>request()->date_naiss,
 			'quartier_id'=>request()->quartier_id,
-			'type_card_id'=>request()->typeCard_id,
+			'type_card_id'=>request()->card_id,
 			'numCard'=>request()->numCard,
 			'active'=>true
 			]);
@@ -65,7 +65,7 @@ class PrestataireController extends Controller
 				'tel'=>request()->tel,
 				'quartier_id'=>request()->quartier_id,
 				'date_naiss'=>request()->date_naiss,
-				'type_card_id'=>request()->typeCard_id,
+				'type_card_id'=>request()->card_id,
 				'numCard'=>request()->numCard,
 			]);
 		}
@@ -88,8 +88,8 @@ class PrestataireController extends Controller
     public function edit(Prestataire $prestataire)
     {
         $quartiers = Quartier::where('id','<>',$prestataire->quartier->id)->get();
-		$typeCards = TypeCard::where('id','<>',$prestataire->typeCard->id)->get();
-        return view('prestations.prestataires.edit',compact('quartiers','prestataire','typeCards'));
+		$cards = Card::where('id','<>',$prestataire->card->id)->get();
+        return view('prestations.prestataires.edit',compact('quartiers','prestataire','cards'));
     }
 
     /**
@@ -117,7 +117,7 @@ class PrestataireController extends Controller
 			'tel'=>request()->tel,
 			'date_naiss'=>request()->date_naiss,
 			'quartier_id'=>request()->quartier_id,
-			'type_card_id'=>request()->typeCard_id,
+			'type_card_id'=>request()->card_id,
 			'numCard'=>request()->numCard,
 			'active'=>true
 			]);
@@ -129,7 +129,7 @@ class PrestataireController extends Controller
 				'tel'=>request()->tel,
 				'quartier_id'=>request()->quartier_id,
 				'date_naiss'=>request()->date_naiss,
-				'type_card_id'=>request()->typeCard_id,
+				'type_card_id'=>request()->card_id,
 				'numCard'=>request()->numCard,
 				'active'=>false
 			]);
