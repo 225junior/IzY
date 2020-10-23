@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(QuartierSeeder::class);
         $this->call(CardSeeder::class);
         $this->call(DomaineSeeder::class);
+        $this->call(ServiceSeeder::class);
         $this->call(PrestataireSeeder::class);
     }
 }

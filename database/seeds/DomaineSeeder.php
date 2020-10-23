@@ -12,27 +12,27 @@ class DomaineSeeder extends Seeder
     public function run()
     {
         Domaine::create([
-			'libelle'=>'Commerce',
+			'libelle'=>'Traveaux Publics',
 			'active'=>true
 		]);
 		Domaine::create([
-			'libelle'=>'Maritime',
+			'libelle'=>'Banque-Finance',
 			'active'=>true
 		]);
 		Domaine::create([
-			'libelle'=>'Aviation',
+			'libelle'=>'Santé',
 			'active'=>true
 		]);
 		Domaine::create([
-			'libelle'=>'Batiment',
+			'libelle'=>'internet-web',
 			'active'=>true
 		]);
 		Domaine::create([
-			'libelle'=>'Automobile',
+			'libelle'=>'Hôtellerie-Restauration',
 			'active'=>true
 		]);
 		Domaine::create([
-			'libelle'=>'Electricité',
+			'libelle'=>'Administratif',
 			'active'=>true
 		]);
     }
