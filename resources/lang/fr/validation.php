@@ -146,6 +146,7 @@ return [
 
     'attributes' => [
         'name'                  => 'nom',
+        'numCard'               => 'numéro de carte',
         'username'              => "nom d'utilisateur",
         'email'                 => 'adresse email',
         'first_name'            => 'prénom',
