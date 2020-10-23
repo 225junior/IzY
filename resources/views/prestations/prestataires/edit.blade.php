@@ -77,15 +77,15 @@
 					</div>
 
 
-					<!-- name= type_card_id -->
+					<!-- name= card_id -->
 					<div class="item form-group">
 						<label class="col-form-label col-md-3 col-sm-3 label-align">Type de carte</label>
 						<div class="col-md-6 col-sm-9 ">
-							<select class="select2_single form-control" tabindex="6" name="type_card_id">
-								@foreach ($typeCards as $typeCard)
-									<option value="{{ $typeCard->id }}">{{ $typeCard->libelle }}</option>
+							<select class="select2_single form-control" tabindex="6" name="card_id">
+								@foreach ($cards as $card)
+									<option value="{{ $card->id }}">{{ $card->libelle }}</option>
 								@endforeach
-								<option selected value="{{ $prestataire->typeCard->id }}">{{ $prestataire->typeCard->libelle }}</option>
+								<option selected value="{{ $prestataire->card->id }}">{{ $prestataire->card->libelle }}</option>
 							</select>
 						</div>
 					</div>
@@ -95,7 +95,7 @@
 					<div class="item form-group">
 						<label class="col-form-label col-md-3 col-sm-3 label-align" for="numCard">Numéro de carte <span class="required">*</span></label>
 						<div class="col-md-6 col-sm-9 ">
-							<input type="string" id="numCard" min="2" tabindex="7" required name="numCard" class="form-control" value="{{ $prestataire->numcard }}">
+							<input type="string" id="numCard" min="2" tabindex="7" required name="numCard" class="form-control" value="{{ $prestataire->numCard }}">
 							@if ($errors->has('numCard'))
 								<p class="text-danger">{{ $errors->first('numCard') }}</p>
 							@endif
