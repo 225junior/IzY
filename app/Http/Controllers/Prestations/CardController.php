@@ -26,7 +26,7 @@ class CardController extends Controller
      */
     public function create()
     {
-        //
+        return view('prestations.cards.create');
     }
 
     /**
@@ -37,7 +37,21 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+			'name'=>'required'
+		]);
+		if ($request->active) {
+			Card::create([
+				'libelle'=>$request->name,
+				'active'=>true
+			]);
+		}else{
+			Card::create([
+				'libelle'=>$request->name,
+				'active'=>false
+			]);
+		}
+		return redirect()->route('cards.index')->with(['msg'=>'Enregistrement Effectué !']);
     }
 
     /**
@@ -59,7 +73,7 @@ class CardController extends Controller
      */
     public function edit(Card $card)
     {
-        //
+        return view('prestations.cards.edit',compact('card'));
     }
 
     /**
@@ -71,7 +85,21 @@ class CardController extends Controller
      */
     public function update(Request $request, Card $card)
     {
-        //
+        $request->validate([
+			'name'=>'required'
+		]);
+		if ($request->active) {
+			Card::find($card->id)->update([
+				'libelle'=>$request->name,
+				'active'=>true
+			]);
+		}else{
+			Card::find($card->id)->update([
+				'libelle'=>$request->name,
+				'active'=>false
+			]);
+		}
+		return redirect()->route('cards.index')->with(['msg'=>'Enregistrement Effectué !']);
     }
 
     /**
@@ -82,6 +110,7 @@ class CardController extends Controller
      */
     public function destroy(Card $card)
     {
-        //
+		Card::findOrFail($card->id)->delete();
+		return redirect()->route('cards.index')->with(['msg'=>'Suppression Effectuée !']);
     }
 }
