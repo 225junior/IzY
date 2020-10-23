@@ -71,13 +71,13 @@
 						</div>
 					</div>
 
-					<!-- name= type_card_id -->
+					<!-- name= card -->
 					<div class="item form-group">
 						<label class="col-form-label col-md-3 col-sm-3 label-align">Type de carte</label>
 						<div class="col-md-6 col-sm-9 ">
-							<select class="select2_single form-control" tabindex="6" name="typeCard_id">
-								@foreach ($typeCards as $typeCard)
-									<option value="{{ $typeCard->id }}">{{ $typeCard->libelle }}</option>
+							<select class="select2_single form-control" tabindex="6" name="card">
+								@foreach ($cards as $card)
+									<option value="{{ $card->id }}">{{ $card->libelle }}</option>
 								@endforeach
 							</select>
 						</div>

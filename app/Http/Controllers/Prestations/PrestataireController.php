@@ -42,6 +42,7 @@ class PrestataireController extends Controller
 			'prenoms'=>'required|min:2|max:70',
 			'tel'=>'required|digits_between:8,13',
 			'date_naiss'=>'required|date',
+			'card'=>'required',
 			'numCard'=>'required',
 		]);
 
@@ -53,7 +54,7 @@ class PrestataireController extends Controller
 			'tel'=>request()->tel,
 			'date_naiss'=>request()->date_naiss,
 			'quartier_id'=>request()->quartier_id,
-			'type_card_id'=>request()->card_id,
+			'card_id'=>request()->card,
 			'numCard'=>request()->numCard,
 			'active'=>true
 			]);
@@ -65,7 +66,7 @@ class PrestataireController extends Controller
 				'tel'=>request()->tel,
 				'quartier_id'=>request()->quartier_id,
 				'date_naiss'=>request()->date_naiss,
-				'type_card_id'=>request()->card_id,
+				'card_id'=>request()->card,
 				'numCard'=>request()->numCard,
 			]);
 		}
@@ -106,6 +107,7 @@ class PrestataireController extends Controller
 			'prenoms'=>'required|min:2|max:70',
 			'tel'=>'required|digits_between:8,13',
 			'date_naiss'=>'required|date',
+			'card'=>'required',
 			'numCard'=>'required',
 		]);
 
@@ -117,7 +119,7 @@ class PrestataireController extends Controller
 			'tel'=>request()->tel,
 			'date_naiss'=>request()->date_naiss,
 			'quartier_id'=>request()->quartier_id,
-			'type_card_id'=>request()->card_id,
+			'card_id'=>request()->card,
 			'numCard'=>request()->numCard,
 			'active'=>true
 			]);
@@ -129,7 +131,7 @@ class PrestataireController extends Controller
 				'tel'=>request()->tel,
 				'quartier_id'=>request()->quartier_id,
 				'date_naiss'=>request()->date_naiss,
-				'type_card_id'=>request()->card_id,
+				'card_id'=>request()->card,
 				'numCard'=>request()->numCard,
 				'active'=>false
 			]);
