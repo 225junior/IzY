@@ -27,7 +27,6 @@
                           <th width="30%">Prestataire</th>
                           <th width="*">Tel</th>
                           <th width="*">Naissance</th>
-                          <th width="25%">Quartier</th>
                           <th width="5%">État</th>
                           <th width="*"></th>
                         </tr>
@@ -39,7 +38,6 @@
 								<td><a href="{{ route('prestataires.show',$prestataire->id )}}"> {{ $prestataire->nom }} {{ $prestataire->prenoms }} </a></td>
 								<td> {{ $prestataire->tel }} </td>
 								<td> {{ $prestataire->date_naiss }} </td>
-								<td> {{ $prestataire->quartier->libelle }} </td>
 								<th scope="row"> <i class="fa fa-toggle-{{ $prestataire->active ==1 ?  'on' : 'off'}}"></i> </th>
 								<td>
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $prestataire->id }}">Supprimer</button>

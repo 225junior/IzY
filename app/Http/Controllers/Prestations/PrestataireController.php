@@ -15,7 +15,7 @@ class PrestataireController extends Controller
     /*Display a listing of the resource.*/
     public function index()
     {
-		$prestataires = Prestataire::paginate(15);
+		$prestataires = Prestataire::paginate(5);
         return view('prestations.prestataires.index',compact('prestataires'));
     }
 
