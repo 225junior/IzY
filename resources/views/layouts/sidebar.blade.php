@@ -28,7 +28,7 @@
                         <li ><a><i class="fa fa-users"></i> Users</a></li>
                         <li ><a href="{{ Route('prestataires.index') }}"><i class="fa fa-briefcase"></i> Prestataires</a></li>
                         <li ><a href="{{ Route('domaines.index') }}"><i class="fa fa-briefcase"></i> Domaines</a></li>
-                        <li ><a href="{{ Route('typecards.index') }}"><i class="fa fa-briefcase"></i> {{ __("Cartes d'identité")}} </a></li>
+                        <li ><a href="{{ Route('cards.index') }}"><i class="fa fa-briefcase"></i> {{ __("Cartes d'identité")}} </a></li>
                         <li>
                             <a><i class="fa fa-edit"></i> Ressources <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
