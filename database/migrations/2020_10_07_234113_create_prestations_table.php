@@ -23,6 +23,7 @@ class CreatePrestationsTable extends Migration
 
 
 
+		//creation de services
         Schema::create('services', function (Blueprint $table) {
 	        $table->increments('id');
 			$table->string('libelle');
@@ -34,6 +35,7 @@ class CreatePrestationsTable extends Migration
 
 
 
+		//creation de tarifications
 		Schema::create('tarifications', function (Blueprint $table) {
 	        $table->increments('id');
 			$table->double('montant', 5, 2);
@@ -42,7 +44,7 @@ class CreatePrestationsTable extends Migration
 		});
 
 
-
+		//creation de ligne_tarifs
 		Schema::create('ligne_tarifs', function (Blueprint $table) {
 	        $table->increments('id');
 			$table->string('libelle');
