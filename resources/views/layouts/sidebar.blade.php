@@ -32,31 +32,28 @@
 				</div>
 
 				<div class="menu_section">
-					<h3>Reglages </h3>
-					<li class=""><a><i class="fa fa-list"></i> Ressources <span class="fa fa-chevron-down"></span></a>
-						<ul class="nav side-menu" style="display: none;">
+					<h3>Ressources </h3>
+					<ul class="nav side-menu">
 
-							<li class=""><a>Prestations<span class="fa fa-chevron-down"></span></a>
-								<ul class="nav child_menu" style="display: none;">
-									<li><a href="{{ Route('domaines.index') }}"> Domaines</a></li>
-									<li><a href="{{ Route('domaines.index') }}"> {{__("Carte d'identité")}}</a></li>
-									</li>
-								</ul>
-							</li>
-
-							<li class=""><a>Situation Géographique<span class="fa fa-chevron-down"></span></a>
-								<ul class="nav child_menu" style="display: none;">
-									<li><a href="{{ Route('regions.index') }}">Regions</a></li>
-									<li><a href="{{ Route('villes.index') }}">Viles</a></li>
-									<li><a href="{{ Route('communes.index') }}">Communes</a></li>
-									<li><a href="{{ Route('quartiers.index') }}">Quartiers</a></li>
-									</li>
-								</ul>
-							</li>
-
-						</ul>
-					</li>
+						<li>
+							<a><i class="fa fa-list"></i> Prestations <span class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu" style="display: none;">
+								<li><a href="{{ Route('domaines.index') }}"> Domaines</a></li>
+								<li><a href="{{ Route('domaines.index') }}"> {{__("Carte d'identité")}}</a></li>
+							</ul>
+						</li>
+						<li>
+							<a><i class="fa fa-building-o"></i> Situation Géographique <span class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu" style="display: none;">
+								<li><a href="{{ Route('regions.index') }}">Regions</a></li>
+								<li><a href="{{ Route('villes.index') }}">Viles</a></li>
+								<li><a href="{{ Route('communes.index') }}">Communes</a></li>
+								<li><a href="{{ Route('quartiers.index') }}">Quartiers</a></li>
+							</ul>
+						</li>
+					</ul>
 				</div>
+				<!-- menu_section -->
 			</div>
             <!-- /sidebar menu -->
 
