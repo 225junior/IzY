@@ -15,7 +15,8 @@ class CardController extends Controller
      */
     public function index()
     {
-        //
+		$cards = Card::paginate(5);
+		return view('prestations.cards.index',compact('cards'));
     }
 
     /**

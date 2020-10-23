@@ -11,7 +11,7 @@
 			</div>
 			<div class="x_content">
 				<br>
-				<form data-parsley-validate="" action="{{route('typecards.store')}}" method="POST" class="form-horizontal form-label-left" novalidate="">
+				<form data-parsley-validate="" action="{{route('cards.store')}}" method="POST" class="form-horizontal form-label-left" novalidate="">
 					@csrf
 
 					<!-- name= type de carte -->
@@ -30,7 +30,7 @@
 					<div class="item form-group">
 						<label class="col-form-label offset-md-3 col-md-2 col-sm-3 label-align" for="check">Active On/Off</label>
 						<div class="col-md-1 col-sm-2 ">
-							<input type="checkbox" id="check" name="active" class="form-control">
+							<input type="checkbox" id="check" name="active"  tabindex="2" class="form-control">
 						</div>
 					</div>
 
@@ -38,9 +38,9 @@
 					<div class="ln_solid"></div>
 					<div class="item form-group">
 						<div class="col-md-6 col-sm-6 offset-md-4">
-							<a href="{{ route('domaines.index')}}" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i></a>
-							<button class="btn btn-primary" type="reset">Effacer</button>
-							<input type="submit" class="btn btn-success" value="Enregistrer">
+							<a href="{{ route('cards.index')}}"  tabindex="3" class="btn btn-primary" type="button"><i class="fa fa-arrow-left"></i></a>
+							<button class="btn btn-primary" type="reset"  tabindex="4">Effacer</button>
+							<input type="submit" class="btn btn-success"  tabindex="5" value="Enregistrer">
 						</div>
 					</div>
 

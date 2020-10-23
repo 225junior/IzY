@@ -10,7 +10,7 @@
                     <h2>Les types de Cartes</h2>
 
                     <ul class="nav navbar-right panel_toolbox">
-						<a href=" {{ Route('typecards.create') }}" class="btn btn-success">Creer</a>
+						<a href=" {{ Route('cards.create') }}" class="btn btn-success">Creer</a>
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
@@ -30,32 +30,32 @@
                         </tr>
                       </thead>
                       <tbody>
-					  	@foreach ($typeCards as $typeCard)
+					  	@foreach ($cards as $card)
 							<tr>
-								<th scope="row">{{ $typeCard->id }}</th>
-								<td><a href="{{ route('typecards.show',$typeCard->id )}}"> {{ $typeCard->libelle }} </a></td>
+								<th scope="row">{{ $card->id }}</th>
+								<td><a href="{{ route('cards.show',$card->id )}}"> {{ $card->libelle }} </a></td>
 
-								<th scope="row"> <i class="fa fa-toggle-{{ $typeCard->active ==1 ?  'on' : 'off'}}"></i> </th>
+								<th scope="row"> <i class="fa fa-toggle-{{ $card->active ==1 ?  'on' : 'off'}}"></i> </th>
 								<td>
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $typeCard->id }}">Supprimer</button>
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-{{ $card->id }}">Supprimer</button>
 
 
-                  <div class="modal fade modal-{{ $typeCard->id }}" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+                  <div class="modal fade modal-{{ $card->id }}" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
                     <div class="modal-dialog modal-sm">
                       <div class="modal-content">
 
                         <div class="modal-header">
-                          <h4 class="modal-title" id="myModalLabel2">Supprimer  {{ $typeCard->libelle }}</h4>
+                          <h4 class="modal-title" id="myModalLabel2">Supprimer  {{ $card->libelle }}</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
                           </button>
                         </div>
                         <div class="modal-body">
                           <h4>Attention !</h4>
-                          <p>Voulez vous vraiment supprimer {{ $typeCard->libelle }} ?</p>
+                          <p>Voulez vous vraiment supprimer {{ $card->libelle }} ?</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                          <form method="POST" action="{{ route('typecards.destroy', $typeCard->id ) }}" class="col-md-5">
+                          <form method="POST" action="{{ route('cards.destroy', $card->id ) }}" class="col-md-5">
                             @csrf
                             @method('DELETE')
                             <input class="btn btn-xs btn-danger" type="submit" value="🗑️">
@@ -66,7 +66,7 @@
                       </div>
                     </div>
                   </div>
-							  <a class="btn btn-xs btn-info col-md-3" href="{{ route('typecards.edit',$typeCard->id) }}">🖊️</a>
+							  <a class="btn btn-xs btn-info col-md-3" href="{{ route('cards.edit',$card->id) }}">🖊️</a>
 								</td>
 							</tr>
 						@endforeach
@@ -74,7 +74,7 @@
                       </tbody>
                     </table>
 
-					{{ $typeCards->links() }}
+					{{ $cards->links() }}
 
 
 
