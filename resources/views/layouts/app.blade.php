@@ -136,6 +136,6 @@
     <script src="{{ asset('vendors/bootstrap-daterangepicker/daterangepicker.js')}}" async></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="{{ asset('build/js/custom.min.js')}}" async></script>
+    <script src="{{ asset('build/js/custom.js')}}" async></script>
 </body>
 </html>

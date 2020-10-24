@@ -25,9 +25,9 @@
 
                 <div class="menu_section active">
                     <ul class="nav side-menu" style="">
-                        <li class="active"><a><i class="fa fa-home"></i> Home</a></li>
-                        <li ><a><i class="fa fa-users"></i> Users</a></li>
-                        <li ><a href="{{ Route('prestataires.index') }}"><i class="fa fa-briefcase"></i> Prestataires</a></li>
+                        <li class=" {{ Route::currentRouteNamed('home') ? 'active' : '' }}"><a href="{{ Route('home') }} "><i class="fa fa-home"></i> Home</a></li>
+                        <li class="{{ request()->routeIs('ursers.*') ? 'active' : '' }}"><a><i class="fa fa-users"></i> Users</a></li>
+                        <li class="{{ request()->routeIs('prestataires.*') ? 'active' : '' }}"><a href="{{ Route('prestataires.index') }}"><i class="fa fa-briefcase"></i> Prestataires</a></li>
 					</ul>
 				</div>
 
@@ -38,17 +38,17 @@
 						<li>
 							<a><i class="fa fa-list"></i> Prestations <span class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu" style="display: none;">
-								<li><a href="{{ Route('domaines.index') }}"> Domaines</a></li>
-								<li><a href="{{ Route('domaines.index') }}"> {{__("Carte d'identité")}}</a></li>
+								<li class="{{ request()->routeIs('domaines.*')?'current-page':'' }}"><a href="{{ Route('domaines.index') }}"> Domaines</a></li>
+								<li class="{{ request()->routeIs('cards.*')?'current-page':'' }}"><a href="{{ Route('cards.index') }}"> {{__("Carte d'identité")}}</a></li>
 							</ul>
 						</li>
 						<li>
-							<a><i class="fa fa-building-o"></i> Situation Géographique <span class="fa fa-chevron-down"></span></a>
+							<a><i class="fa fa-building-o"></i> Situation Géo<span class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu" style="display: none;">
-								<li><a href="{{ Route('regions.index') }}">Regions</a></li>
-								<li><a href="{{ Route('villes.index') }}">Viles</a></li>
-								<li><a href="{{ Route('communes.index') }}">Communes</a></li>
-								<li><a href="{{ Route('quartiers.index') }}">Quartiers</a></li>
+								<li class="{{ request()->routeIs('regions.*')?'current-page':'' }}"><a href="{{ Route('regions.index') }}">Regions</a></li>
+								<li class="{{ request()->routeIs('villes.*') ? 'current-page' : '' }}"><a href="{{ Route('villes.index') }}">Viles</a></li>
+								<li class="{{ request()->routeIs('communes.*') ? 'current-page' : '' }}"><a href="{{ Route('communes.index') }}">Communes</a></li>
+								<li class="{{ request()->routeIs('quartiers.*') ? 'current-page' : '' }}"><a href="{{ Route('quartiers.index') }}">Quartiers</a></li>
 							</ul>
 						</li>
 					</ul>
