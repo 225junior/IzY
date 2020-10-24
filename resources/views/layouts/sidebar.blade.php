@@ -40,6 +40,7 @@
 							<ul class="nav child_menu" style="display: none;">
 								<li class="{{ request()->routeIs('domaines.*')?'current-page':'' }}"><a href="{{ Route('domaines.index') }}"> Domaines</a></li>
 								<li class="{{ request()->routeIs('cards.*')?'current-page':'' }}"><a href="{{ Route('cards.index') }}"> {{__("Carte d'identité")}}</a></li>
+								<li class="{{ request()->routeIs('services.*')?'current-page':'' }}"><a href="{{ Route('services.index') }}"> Services </a></li>
 							</ul>
 						</li>
 						<li>
