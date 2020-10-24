@@ -11,7 +11,7 @@ class ServiceController extends Controller
     /*Display a listing of the resource.*/
     public function index()
     {
-		$services = Service::paginate(15);
+		$services = Service::paginate(5);
         return view('prestations.services.index',compact('services'));
     }
 
@@ -21,7 +21,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('prestations.services.create');
     }
 
     /**
@@ -52,9 +52,9 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Service $service)
     {
-        //
+        return view('prestations.services.index',compact('service'));
     }
 
     /**
